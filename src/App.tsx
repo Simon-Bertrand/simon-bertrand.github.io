@@ -33,7 +33,7 @@ function App() {
         <nav className="mt-6">
             <div>
               {
-                Menus.map((x,i) =>
+                Menus.map((x) =>
                   <NavLink className="menu-item" to={x.href} >
                     <span className="text-left">
                         {x.svg}
