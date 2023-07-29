@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './style/index.css'
-import { BrowserRouter, HashRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { NavLink, Routes, Route } from "react-router-dom";
 import { Menus, SocialMedias } from "./params";
 import Pages from "./partials/Page";
