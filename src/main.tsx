@@ -35,7 +35,7 @@ function App() {
                       {
                         Menus.map((x) =>
                           <NavLink 
-                          className={({ isActive, isPending }) => isActive ? "menu-item-active" : "menu-item"}
+                          className={({ isActive }) => isActive ? "menu-item-active" : "menu-item"}
                           to={x.href} >
                             <span className="text-left">
                                 {x.svg}
