@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './style/index.css'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 import { NavLink, Routes, Route } from "react-router-dom";
 import { Menus, SocialMedias } from "./params";
 import Pages from "./partials/Page";
@@ -59,6 +59,7 @@ function App() {
             {
               Menus.map(x => {return <Route path = {x.href} element={<Pages href={x.href}>{x.page}</Pages>} />})
             }
+           
         </Routes>
       </div>
       
@@ -75,8 +76,8 @@ function App() {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
   </React.StrictMode>,
 )
