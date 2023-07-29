@@ -36,7 +36,11 @@ body {
 }
 
 #root {
-  @apply bg-red-500 w-[100vw] md:w-[95vw] lg:w-[87vw] xl:w-[70vw] h-[100vh] mx-auto grid md:grid-cols-3 grid-cols-1
+  @apply w-[100vw] md:w-[95vw] lg:w-[87vw] xl:w-[70vw] h-[100vh] mx-auto
+}
+
+.layout {
+  @apply grid lg:grid-cols-3 grid-cols-1 py-3 lg:h-[96vh] w-full
 }
 
 
@@ -49,15 +53,15 @@ body {
 }
 
 .subtitle {
-  @apply text-center text-gray-300 italic
+  @apply text-center text-gray-300 italic bg-slate-700 rounded-md p-1 w-[75%] mx-auto
 }
 
 .menu-item {
-  @apply flex items-center justify-start w-full px-4 py-2 my-2 font-thin text-gray-500 uppercase transition-colors duration-200 dark:text-gray-200 hover:text-blue-500
+  @apply flex items-center justify-start w-full px-4 py-1 md:py-2 my-2 font-thin text-gray-500 uppercase transition-colors duration-200 dark:text-gray-200 hover:text-blue-500
 }
 
 .menu-item-active {
-  @apply flex items-center justify-start w-full px-4 py-2 my-2 font-thin text-blue-500 uppercase transition-colors duration-200 border-r-4 border-blue-500 bg-gradient-to-r from-white to-blue-100 dark:from-gray-700 dark:to-gray-800
+  @apply flex items-center justify-start w-full px-4 py-1 md:py-2 my-2 font-thin text-blue-500 uppercase transition-colors duration-200 border-r-4 border-blue-500 bg-gradient-to-r from-white to-blue-100 dark:from-gray-700 dark:to-gray-800
 }
 
 h5 {
@@ -65,6 +69,9 @@ h5 {
 }
 h3 {
   @apply text-2xl uppercase
+ }
+ h1 {
+  @apply text-4xl
  }
 
  .page {
@@ -74,6 +81,17 @@ h3 {
  .bg-color {
   @apply bg-slate-800
  }
+
+ 
+
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #bbbbbb;
+	border-radius: 10px;
+}
 
 
 .page h3  {
