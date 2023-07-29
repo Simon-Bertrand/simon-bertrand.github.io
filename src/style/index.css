@@ -1,0 +1,81 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*, html {
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth !important;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  @apply bg-red-500 w-[100vw] md:w-[95vw] lg:w-[87vw] xl:w-[70vw] h-[100vh] mx-auto grid md:grid-cols-3 grid-cols-1
+}
+
+
+.avatar {
+  @apply rounded-full max-h-[200px] mx-auto shadow-2xl
+}
+
+.title {
+  @apply text-center text-3xl py-3 
+}
+
+.subtitle {
+  @apply text-center text-gray-300 italic
+}
+
+.menu-item {
+  @apply flex items-center justify-start w-full px-4 py-2 my-2 font-thin text-gray-500 uppercase transition-colors duration-200 dark:text-gray-200 hover:text-blue-500
+}
+
+.menu-item-active {
+  @apply flex items-center justify-start w-full px-4 py-2 my-2 font-thin text-blue-500 uppercase transition-colors duration-200 border-r-4 border-blue-500 bg-gradient-to-r from-white to-blue-100 dark:from-gray-700 dark:to-gray-800
+}
+
+h5 {
+  @apply text-sm
+}
+h3 {
+  @apply text-2xl uppercase
+ }
+
+ .page {
+  @apply bg-color rounded-xl shadow-xl p-3 h-full
+ }
+
+ .bg-color {
+  @apply bg-slate-800
+ }
+
+
+.page h3  {
+  @apply mx-auto text-white capitalize
+ }
