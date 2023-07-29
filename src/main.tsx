@@ -59,7 +59,7 @@ function App() {
             {
               Menus.map(x => {return <Route path = {x.href} element={<Pages href={x.href}>{x.page}</Pages>} />})
             }
-           
+           <Route path = "*" element={<Pages href={Menus[0].href}>{Menus[0].page}</Pages>} />
         </Routes>
       </div>
       
