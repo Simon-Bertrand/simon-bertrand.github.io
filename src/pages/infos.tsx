@@ -44,85 +44,76 @@ export default function InfosPage() {
         </div>
         
         <div className="max-w-screen-xl p-3 mx-auto">
-            <h2 className="mb-12 text-3xl font-extrabold border-b-4">
+            <h2 className="mb-8 text-3xl font-extrabold border-b-4">
                 Domaines techniques
             </h2>
-            <ul className="flex flex-wrap items-start gap-8">
-                <li className="w-2/5">
-                    <p className="text-lg font-medium leading-6">
-                        IA / Machine Learning 
-                    </p>
-                    <p className="mt-2">
-                        <p className="text-base leading-6 text-gray-500">
-                            TensorFlow, Keras, PyTorch, Jax, Sci-kit Learn, Ray
-                        </p>
-                    </p>
-                </li>
-                <li className="w-2/5">
-                    <p className="text-lg font-medium leading-6">
+            
+            <div className="grid grid-cols-2 text-center items-center gap-8">
+                <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+                        <div className="w-full">
+                            <p className="mb-2 text-lg font-medium text-white">
+                                IA / Machine Learning 
+                            </p>
+                            <p className="text-xs text-gray-400">
+                                TensorFlow, Keras, PyTorch, Jax, Sci-kit Learn, Ray
+                            </p>
+                        </div>
+                </div>
+                <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+                    <div className="w-full">
+                        <p className="mb-2 text-lg font-medium text-white">
                         Traitement du signal et des images
-                    </p>
-                    <p className="mt-2">
-                        <p className="text-base leading-6 text-gray-500">
-                            OpenCV, SciPy, Numpy, Pandas, Statsmodels
                         </p>
-                        <p className="text-base leading-6 text-gray-500">
-                            MATLAB Toolbox
+                        <p className="text-xs text-gray-400">
+                        OpenCV, SciPy, Numpy, Pandas, Statsmodels, MATLAB Toolbox
                         </p>
-                    </p>
-                </li>
-                <li className="w-2/5">
-                    <p className="text-lg font-medium leading-6">
-                        Visualisation et analyse de données
-                    </p>
-                    <p className="mt-2">
-                        <p className="text-base leading-6 text-gray-500">
-                            Matplotlib, Plotly, Seaborn, Apache ECharts
+                    </div>
+                </div>
+                <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+                    <div className="w-full">
+                        <p className="mb-2 text-lg font-medium text-white">
+                            Data Engineering
                         </p>
-                    </p>
-                </li>
-                <li className="w-2/5">
-                    <p className="text-lg font-medium leading-6">
-                        Data Engineering
-                    </p>
-                    <p className="mt-2">
-                        <p className="text-base leading-6 text-gray-500">
+                        <p className="text-xs text-gray-400">
                             SQL, No-SQL, T-SQL, PL/pgSQL, PySpark, ORM, ETL
                         </p>
-                    </p>
-                </li>
-                <li className="w-2/5">
-                    <p className="text-lg font-medium leading-6 ">
-                        Développement web
-                    </p>
-                    <p className="mt-2">
-                        <p className="text-base leading-6 text-gray-500">
+                    </div>
+                </div>
+
+                <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+                    <div className="w-full">
+                        <p className="mb-2 text-lg font-medium text-white">
+                            Développement web
+                        </p>
+                        <p className="text-xs text-gray-400">
                             HTML, CSS, JavaScript, C# (ASP .NET), Node.js, TypeScript, ReactJS, Next.js, Tailwind CSS, Bootstrap
                         </p>
-                    </p>
-                </li>
-                <li className="w-2/5">
-                    <p className="text-lg font-medium leading-6 ">
-                        Programmation bas niveau
-                    </p>
-                    <p className="mt-2">
-                        <p className="text-base leading-6 text-gray-500">
+                    </div>
+                </div>
+                <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+                    <div className="w-full">
+                        <p className="mb-2 text-lg font-medium text-white">
+                            Programmation bas niveau
+                        </p>
+                        <p className="text-xs text-gray-400">
                             Rust, C/C++ 
                         </p>
-                    </p>
-                </li>
-                <li className="w-2/5">
-                    <p className="text-lg font-medium leading-6 ">
+                    </div>
+                </div>
+                <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+                    <div className="w-full">
+                        <p className="mb-2 text-lg font-medium text-white">
                         Réseau et administration système
-                    </p>
-                    <p className="mt-2">
-                        <p className="text-base leading-6 text-gray-500">
-                            Windows, Linux, Ubuntu Server, Serveurs HTTP, SSL, Docker, SSH. <br />
+                        </p>
+                        <p className="text-xs text-gray-400">
+                        Windows, Linux, Ubuntu Server, Serveurs HTTP, SSL, Docker, SSH. <br />
                             Notions en réseau
                         </p>
-                    </p>
-                </li>
-            </ul>
+                    </div>
+                </div>
+            </div>
+
+          
         </div>
 
 
