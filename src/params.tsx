@@ -50,8 +50,7 @@ export const SocialMedias = [
 ]
 
 export const InfosStats  = [
-  {name :"Public GitHub Projects", value:"15"},
-  {name :"GitHub Commits", value:"900"},
+  {name :"Years of study", value:(new Date().getFullYear() - 2017)>9?"9":(new Date().getFullYear()-2017).toString()},
   {name :"Articles", value:"0"},
-  {name :"Years of development", value:"11"},
+  {name :"Years of development", value:(new Date().getFullYear() - 2012).toString()},
 ]
