@@ -18,7 +18,7 @@ export default function InfosPage() {
                 </span>
             </h2>
             <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
-                Software Engineering (Web, IHM) aet Science des données (ML, DL, CV) avec Python, Rust, C#, SQL et ReactJS.
+                Software Engineering (Web, IHM) et Science des données (ML, DL, CV) avec Python, Rust, C#, SQL et ReactJS.
             </p>
             <section>
                 <div className="container flex justify-around py-3">
