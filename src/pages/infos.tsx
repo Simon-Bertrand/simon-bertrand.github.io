@@ -21,7 +21,7 @@ export default function InfosPage() {
                 Software Engineering (Web, Application) and Data Science (ML, DL, CV) with Python, Rust, C#, SQL and ReactJS.
             </p>
             <section>
-                <div className="container grid grid-cols-2 gap-8 pt-8 mx-auto text-center md:grid-cols-4">
+                <div className="container flex justify-around py-3">
                     {
                         InfosStats.map(x => 
                             <div>
