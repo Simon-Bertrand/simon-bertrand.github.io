@@ -18,7 +18,7 @@ export default function InfosPage() {
                 </span>
             </h2>
             <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
-                Software Engineering (Web, IHM) et Science des données (ML, DL, CV) avec Python, Rust, C#, SQL et ReactJS.
+                Science des données & IA (ML, DL, CV) et Software Engineering (Web, IHM) avec Python, Rust, C#, SQL et ReactJS.
             </p>
             <section>
                 <div className="container flex justify-around py-3">
@@ -45,12 +45,12 @@ export default function InfosPage() {
         
         <div className="max-w-screen-xl p-3 mx-auto">
             <h2 className="mb-12 text-3xl font-extrabold border-b-4">
-                Champs techniques
+                Domaines techniques
             </h2>
             <ul className="flex flex-wrap items-start gap-8">
                 <li className="w-2/5">
                     <p className="text-lg font-medium leading-6">
-                        AI / Machine Learning 
+                        IA / Machine Learning 
                     </p>
                     <p className="mt-2">
                         <p className="text-base leading-6 text-gray-500">
@@ -118,7 +118,7 @@ export default function InfosPage() {
                     <p className="mt-2">
                         <p className="text-base leading-6 text-gray-500">
                             Windows, Linux, Ubuntu Server, Serveurs HTTP, SSL, Docker, SSH. <br />
-                            Notions en réseau : HTTP, TCP, IP, Ports, DNS, DHCP, Proxy, VPN, Pare-feu, Port forwarding, ...
+                            Notions en réseau
                         </p>
                     </p>
                 </li>
