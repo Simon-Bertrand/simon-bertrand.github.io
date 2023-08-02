@@ -14,11 +14,11 @@ export default function InfosPage() {
                     Simon Bertrand
                 </span>
                 <span className="block text-indigo-500">
-                    a French engineer in Computer Science
+                   Ingénieur dans les technologies de l'information
                 </span>
             </h2>
             <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
-                Software Engineering (Web, Application) and Data Science (ML, DL, CV) with Python, Rust, C#, SQL and ReactJS.
+                Software Engineering (Web, IHM) aet Science des données (ML, DL, CV) avec Python, Rust, C#, SQL et ReactJS.
             </p>
             <section>
                 <div className="container flex justify-around py-3">
@@ -45,7 +45,7 @@ export default function InfosPage() {
         
         <div className="max-w-screen-xl p-3 mx-auto">
             <h2 className="mb-12 text-3xl font-extrabold border-b-4">
-                Technical fields
+                Champs techniques
             </h2>
             <ul className="flex flex-wrap items-start gap-8">
                 <li className="w-2/5">
@@ -60,7 +60,7 @@ export default function InfosPage() {
                 </li>
                 <li className="w-2/5">
                     <p className="text-lg font-medium leading-6">
-                        Images & Signals Processing
+                        Traitement du signal et des images
                     </p>
                     <p className="mt-2">
                         <p className="text-base leading-6 text-gray-500">
@@ -73,7 +73,7 @@ export default function InfosPage() {
                 </li>
                 <li className="w-2/5">
                     <p className="text-lg font-medium leading-6">
-                        Data Vizualisation & Analysis
+                        Visualisation et analyse de données
                     </p>
                     <p className="mt-2">
                         <p className="text-base leading-6 text-gray-500">
@@ -93,7 +93,7 @@ export default function InfosPage() {
                 </li>
                 <li className="w-2/5">
                     <p className="text-lg font-medium leading-6 ">
-                        Web Development
+                        Développement web
                     </p>
                     <p className="mt-2">
                         <p className="text-base leading-6 text-gray-500">
@@ -103,7 +103,7 @@ export default function InfosPage() {
                 </li>
                 <li className="w-2/5">
                     <p className="text-lg font-medium leading-6 ">
-                        Low-level Programming
+                        Programmation bas niveau
                     </p>
                     <p className="mt-2">
                         <p className="text-base leading-6 text-gray-500">
@@ -113,11 +113,12 @@ export default function InfosPage() {
                 </li>
                 <li className="w-2/5">
                     <p className="text-lg font-medium leading-6 ">
-                        Systems administration
+                        Réseau et administration système
                     </p>
                     <p className="mt-2">
                         <p className="text-base leading-6 text-gray-500">
-                            Ubuntu Server, Docker, SSH
+                            Windows, Linux, Ubuntu Server, Serveurs HTTP, SSL, Docker, SSH. <br />
+                            Notions en réseau : HTTP, TCP, IP, Ports, DNS, DHCP, Proxy, VPN, Pare-feu, Port forwarding, ...
                         </p>
                     </p>
                 </li>
