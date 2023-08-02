@@ -5,17 +5,17 @@ import RessourcesPage from "./pages/ressources"
 
 export const Menus = [
     {
-      name : "Infos", href : "infos",
+      name : "À propos", href : "",
       page :  <InfosPage />,
       svg : <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 19.2c-2.5 0-4.71-1.28-6-3.2c.03-2 4-3.1 6-3.1s5.97 1.1 6 3.1a7.232 7.232 0 0 1-6 3.2M12 5a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3m0-3A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10c0-5.53-4.5-10-10-10Z"/></svg>
     },
     {
-      name : "Education", href : "education",
+      name : "Éducation", href : "education",
       page: <EducationPage />,
       svg : <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3h20c1.05 0 2 .95 2 2v14c0 1.05-.95 2-2 2H2c-1.05 0-2-.95-2-2V5c0-1.05.95-2 2-2m12 3v1h8V6h-8m0 2v1h8V8h-8m0 2v1h7v-1h-7m-6 3.91C6 13.91 2 15 2 17v1h12v-1c0-2-4-3.09-6-3.09M8 6a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3Z"/></svg>
     },
     {
-      name : "Experiences", href : "experiences",
+      name : "Expériences", href : "experiences",
       page: <ExperiencesPage />,
       svg :<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v10H4m16 2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4c-1.11 0-2 .89-2 2v10a2 2 0 0 0 2 2H0v2h24v-2h-4Z"/></svg>
     },
@@ -50,7 +50,7 @@ export const SocialMedias = [
 ]
 
 export const InfosStats  = [
-  {name :"Years of study", value:(new Date().getFullYear() - 2017)>9?"9":(new Date().getFullYear()-2017).toString()},
+  {name :"Années d'études", value:(new Date().getFullYear() - 2017)>9?"9":(new Date().getFullYear()-2017).toString()},
   {name :"Articles", value:"0"},
-  {name :"Years of development", value:(new Date().getFullYear() - 2012).toString()},
+  {name :"Années de développement", value:(new Date().getFullYear() - 2012).toString()},
 ]
