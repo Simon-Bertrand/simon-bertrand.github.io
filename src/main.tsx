@@ -65,8 +65,8 @@ function App() {
       
     </div>
     <div className="flex justify-center items-center">
-        <footer className="text-stone-700">
-          © {new Date().getFullYear()} Simon Bertrand. All rights reserved.
+        <footer className="text-stone-400">
+          © {new Date().getFullYear()} Simon Bertrand. Tous droits réservés.
         </footer>
     </div>
     </>

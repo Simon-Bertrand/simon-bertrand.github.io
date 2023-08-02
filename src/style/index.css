@@ -18,6 +18,18 @@ body {
   min-height: 100vh;
 }
 
+.bg-color {
+  @apply bg-[#313131]
+ }
+
+ .bg-color2 {
+  @apply bg-[#414141]
+ }
+
+ .color {
+  @apply text-[#4a69bd]
+ }
+
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -26,7 +38,7 @@ body {
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #525252;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -53,15 +65,15 @@ body {
 }
 
 .subtitle {
-  @apply text-center text-gray-300 italic bg-slate-700 rounded-md p-1 w-[75%] mx-auto
+  @apply text-center text-gray-300 italic bg-[#4a69bd3a] rounded-md p-1 w-[75%] mx-auto
 }
 
 .menu-item {
-  @apply flex items-center justify-start w-full px-4 py-1 md:py-2 my-2 font-thin text-gray-500 uppercase transition-colors duration-200 dark:text-gray-200 hover:text-blue-500
+  @apply flex items-center justify-start w-full px-4 py-1 md:py-2 my-2 font-thin  uppercase transition-colors duration-200  hover:text-[#4a69bd]
 }
 
 .menu-item-active {
-  @apply flex items-center justify-start w-full px-4 py-1 md:py-2 my-2 font-thin text-blue-500 uppercase transition-colors duration-200 border-r-4 border-blue-500 bg-gradient-to-r from-white to-blue-100 dark:from-gray-700 dark:to-gray-800
+  @apply flex items-center justify-start w-full px-4 py-1 md:py-2 my-2 font-thin text-[#4a69bd] uppercase transition-colors duration-200 border-r-4 border-[#4a69bd] bg-gradient-to-r from-[#4a69bd38] to-[#313131]
 }
 
 h5 {
@@ -78,9 +90,6 @@ h3 {
   @apply bg-color rounded-xl shadow-xl p-3 h-full
  }
 
- .bg-color {
-  @apply bg-slate-800
- }
 
  
 

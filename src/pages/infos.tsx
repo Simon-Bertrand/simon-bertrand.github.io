@@ -13,11 +13,11 @@ export default function InfosPage() {
                 <span className="block">
                     Simon Bertrand
                 </span>
-                <span className="block text-indigo-500">
+                <span className="color">
                    Ingénieur dans les technologies de l'information
                 </span>
             </h2>
-            <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
+            <p className="text-xl my-4 max-w-xl mx-auto text-gray-400">
                 Science des données & IA (ML, DL, CV) et Software Engineering (Web, IHM) avec Python, Rust, C#, SQL et ReactJS.
             </p>
             <section>
@@ -29,7 +29,7 @@ export default function InfosPage() {
                                     <span className="inline text-white">
                                         {x.value}
                                     </span>
-                                    <span className="text-indigo-200">
+                                    <span className="color">
                                         +
                                     </span>
                                 </h5>
