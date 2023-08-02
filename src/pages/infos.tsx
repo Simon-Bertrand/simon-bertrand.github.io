@@ -8,10 +8,10 @@ export default function InfosPage() {
     return <>
     
 
-        <div className="text-center w-full mx-auto  px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-            <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl text-white">
+        <div className="text-center w-full mx-auto  px-4 sm:px-6 lg:py-10 lg:px-8 z-20">
+            <h2 className="text-3xl font-extrabold sm:text-4xl text-white">
                 <span className="block">
-                    I'm Simon Bertrand
+                    Simon Bertrand
                 </span>
                 <span className="block text-indigo-500">
                     a French engineer in Computer Science
