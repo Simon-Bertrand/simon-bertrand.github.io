@@ -17,7 +17,7 @@ function ExperienceEntity({title, description, date, company, src} : {title : st
                         {date}
                     </p>
                 </div>
-                <img className="w-1/2 mx-auto m-3 object-contain grayscale brightness-120	" src={"logos/"+src} />
+                <img className="w-1/2 mx-auto m-3 object-contain grayscale brightness-150	" src={"logos/"+src} />
     
             </div>
         </div>
