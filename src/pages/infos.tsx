@@ -21,7 +21,7 @@ export default function InfosPage() {
                 Science des données & IA (ML, DL, CV) et Software Engineering (Web, IHM) avec Python, Rust, C#, SQL et ReactJS.
             </p>
             <section>
-                <div className="container flex justify-around py-3">
+                <div className="container flex justify-around pt-3">
                     {
                         InfosStats.map(x => 
                             <div>
@@ -51,7 +51,7 @@ export default function InfosPage() {
             <div className="grid grid-cols-2 text-center items-center gap-8">
                 <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
                         <div className="w-full">
-                            <p className="mb-2 text-lg font-medium text-white">
+                            <p className="mb-2 text-md lg:text-lg font-medium text-white">
                                 IA / Machine Learning 
                             </p>
                             <p className="text-xs text-gray-400">
@@ -61,7 +61,7 @@ export default function InfosPage() {
                 </div>
                 <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
                     <div className="w-full">
-                        <p className="mb-2 text-lg font-medium text-white">
+                        <p className="mb-2 text-md lg:text-lg font-medium text-white">
                         Traitement du signal et des images
                         </p>
                         <p className="text-xs text-gray-400">
@@ -71,7 +71,7 @@ export default function InfosPage() {
                 </div>
                 <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
                     <div className="w-full">
-                        <p className="mb-2 text-lg font-medium text-white">
+                        <p className="mb-2 text-md lg:text-lg font-medium text-white">
                             Data Engineering
                         </p>
                         <p className="text-xs text-gray-400">
@@ -82,7 +82,7 @@ export default function InfosPage() {
 
                 <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
                     <div className="w-full">
-                        <p className="mb-2 text-lg font-medium text-white">
+                        <p className="mb-2 text-md lg:text-lg font-medium text-white">
                             Développement web
                         </p>
                         <p className="text-xs text-gray-400">
@@ -92,7 +92,7 @@ export default function InfosPage() {
                 </div>
                 <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
                     <div className="w-full">
-                        <p className="mb-2 text-lg font-medium text-white">
+                        <p className="mb-2 text-md lg:text-lg font-medium text-white">
                             Programmation bas niveau
                         </p>
                         <p className="text-xs text-gray-400">
@@ -102,7 +102,7 @@ export default function InfosPage() {
                 </div>
                 <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
                     <div className="w-full">
-                        <p className="mb-2 text-lg font-medium text-white">
+                        <p className="mb-2 text-md lg:text-lg font-medium text-white">
                         Réseau et administration système
                         </p>
                         <p className="text-xs text-gray-400">
