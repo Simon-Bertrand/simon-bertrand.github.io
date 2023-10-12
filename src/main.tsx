@@ -45,7 +45,7 @@ function App() {
           <div className='w-full'>
             <img src="avatar.jpg" alt="Simon Bertrand" title="Simon Bertrand Photo" className="avatar" />
             <h1 className="title">Simon Bertrand</h1>
-            <h5 className="subtitle">Ingénieur en Intelligence Artificielle</h5>
+            <h5 className="subtitle">Ingénieur doctorant en Computer Vision</h5>
             <div className="flex text-stone-400 justify-center gap-1 pt-3">
             {
               SocialMedias.map(x => {

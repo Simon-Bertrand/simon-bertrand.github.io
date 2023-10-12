@@ -14,7 +14,7 @@ export default function InfosPage() {
                     Simon Bertrand
                 </span>
                 <span className="color">
-                   Ingénieur dans les technologies de l'information
+                   Ingénieur doctorant en Computer Vision / IA
                 </span>
             </h2>
             <p className="text-xl my-4 max-w-xl mx-auto text-gray-400">

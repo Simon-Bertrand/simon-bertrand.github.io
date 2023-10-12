@@ -54,3 +54,44 @@ export const InfosStats  = [
   {name :"Articles", value:"0"},
   {name :"Années de développement", value:(new Date().getFullYear() - 2012).toString()},
 ]
+
+
+
+export const EducationItems = [
+  {title:"[En cours] Diplôme de doctorat", description:"École doctorale n°209 - Sciences physiques et de l'ingénieur - Univ. Bordeaux", date:"2023-2026", option:"Automatique, productique, signal et image, ingénierie cognitique", src:"U-Bordeaux.png"},
+  {title:"Diplôme d'ingénieur généraliste", description:"Télécom Physique Strasbourg", date:"2020-2023", option:"Images, signaux et science des données", src:"TelecomPhysiqueStrasbourg.png"},
+  {title:"Master Recherche IRIV", description:"Université de Strasbourg", date:"2021-2023", option:"Images et données", src:"MasterIRIV.png"},
+  {title:"Classes préparatoires aux grandes écoles", description:"Lycée Sainte-Marie Grand Lebrun", date:"2017-2020", option:"MPSI-MP", src:"SainteMarieGrandLeBrun.png"},
+]
+
+
+export const ExperienceItems = [
+  {
+    title: "Ingénieur doctorant en Computer Vision",
+    company: "CEA",
+    description: "Recalage par réseaux de neuronnes pour la navigation hybridée",
+    date: "3 ans - 2026",
+    src: "CEA.png"
+  },
+  {
+    title: "Ingénieur en Computer Vision",
+    company: "Thales Nederland B.V.",
+    description: "Segmentation sémantique de vidéos par deep learning",
+    date: "6 mois - 2023",
+    src: "Thales.png"
+  },
+  {
+    title: "Ingénieur logiciel",
+    company: "Groupama Grand Est",
+    description: "Développement d'outils intranet C#, T-SQL et ASP .NET MVC",
+    date: "3 mois - 2022",
+    src: "Groupama.png"
+  },
+  {
+    title: "Ingénieur en Data Mining",
+    company: "iCube",
+    description: "Développement d'outils d'analyse de qualité de clusters",
+    date: "2 mois - 2021",
+    src: "iCube.png"
+  }
+];

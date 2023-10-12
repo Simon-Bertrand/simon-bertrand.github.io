@@ -1,3 +1,5 @@
+import { EducationItems } from "../params"
+
 function EducationEntity({title, description, date, option, src} : {title : string, description : string, date: string, option : string, src:string }) {
     return (
         <div className="flex max-w-md overflow-hidden bg-color2 rounded-lg shadow-lg">
@@ -27,9 +29,10 @@ export default function EducationPage() {
         <>
             <h1 className="text-center p-5">Éducation</h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-                <EducationEntity title="Diplôme d'ingénieur généraliste" description="Télécom Physique Strasbourg" date="2020-2023" option="Images, signaux et science des données" src="TelecomPhysiqueStrasbourg.png"></EducationEntity>
-                <EducationEntity title="Master Recherche IRIV" description="Université de Strasbourg" date="2021-2023" option="Images et données" src="MasterIRIV.png"></EducationEntity>
-                <EducationEntity title="Classes préparatoires aux grandes écoles" description="Lycée Sainte-Marie Grand Lebrun" date="2017-2020" option="MPSI-MP" src="SainteMarieGrandLeBrun.png"></EducationEntity>
+                {
+                    EducationItems.map((x)=>  <EducationEntity {...x}></EducationEntity>
+                    )
+                }
             </div>
         </>
     )
