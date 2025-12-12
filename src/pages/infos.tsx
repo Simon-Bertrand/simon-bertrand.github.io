@@ -36,42 +36,15 @@ export default function InfosPage() {
           Domaines techniques
         </h2>
 
-        <div className="grid grid-cols-2 text-center items-center gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 text-center items-center gap-8">
+
           <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
             <div className="w-full">
               <p className="mb-2 text-md lg:text-lg font-medium text-white">
-                IA / Machine Learning
+                Programmation
               </p>
               <p className="text-xs text-gray-400">
-                TensorFlow, Keras, PyTorch, Jax, Sci-kit Learn, Ray
-              </p>
-            </div>
-          </div>
-          <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
-            <div className="w-full">
-              <p className="mb-2 text-md lg:text-lg font-medium text-white">
-                Traitement du signal et des images
-              </p>
-              <p className="text-xs text-gray-400">
-                OpenCV, SciPy, Numpy, Pandas, Statsmodels, MATLAB, Google Earth
-                Engine
-              </p>
-            </div>
-          </div>
-          <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
-            <div className="w-full">
-              <p className="mb-2 text-md lg:text-lg font-medium text-white">
-                Data Engineering
-              </p>
-              <p className="text-xs text-gray-400">
-                SQL, No-SQL, Redis Cache, T-SQL, PL/pgSQL, PySpark, ORM, ETL.
-                <br />
-                <p className="text-[10px] italic">
-                  {" "}
-                  Bonne maîtrise de PostgreSQL et de ces fonctionnalités
-                  avancées : notify/listen, procédures stockées, triggers,
-                  extension TimescaleDB...
-                </p>
+                Rust, Python, C#, C++, C, TypeScript, JavaScript
               </p>
             </div>
           </div>
@@ -79,36 +52,91 @@ export default function InfosPage() {
           <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
             <div className="w-full">
               <p className="mb-2 text-md lg:text-lg font-medium text-white">
-                Développement web
+                Intelligence artificielle
               </p>
               <p className="text-xs text-gray-400">
-                HTML, CSS, JavaScript, C# (ASP .NET), Node.js, TypeScript,
-                ReactJS, Next.js, Tailwind CSS, Bootstrap
+                Deep Learning, Vision par ordinateur, Traitement du signal et des images, Statistiques
               </p>
             </div>
           </div>
+
           <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
             <div className="w-full">
               <p className="mb-2 text-md lg:text-lg font-medium text-white">
-                Programmation bas niveau
+                Outils Data Science
               </p>
-              <p className="text-xs text-gray-400">Rust, C/C++</p>
+              <p className="text-xs text-gray-400">
+                PyTorch, TensorFlow, JAX, HF, Scipy, Scikit-Learn, Pandas, Polars, Statsmodels
+              </p>
             </div>
           </div>
+
           <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
             <div className="w-full">
               <p className="mb-2 text-md lg:text-lg font-medium text-white">
-                Réseau et administration système
+                Ingénierie logicielle
               </p>
               <p className="text-xs text-gray-400">
-                Ubuntu Server, serveurs web (protocole HTTP, WS, ...), Docker,
-                CI/CD, IP, Proxy, DNS, NAT, SSL, Port Forwarding, ... <br />
-                <p className="text-[10px] italic">
-                  Utilisation de supercalculateurs (HPC) pour le calcul intensif
-                </p>
+                Git, Docker, CI/CD, Tests, Bash, SSH
               </p>
             </div>
           </div>
+
+          <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+            <div className="w-full">
+              <p className="mb-2 text-md lg:text-lg font-medium text-white">
+                Développement Web
+              </p>
+              <p className="text-xs text-gray-400">
+                API REST, FastAPI, Next.js, React, HTML, CSS, Tailwind CSS
+              </p>
+            </div>
+          </div>
+
+          <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+            <div className="w-full">
+              <p className="mb-2 text-md lg:text-lg font-medium text-white">
+                Bases de données
+              </p>
+              <p className="text-xs text-gray-400">
+                PostgreSQL, SQL, NoSQL, Redis
+              </p>
+            </div>
+          </div>
+
+          <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+            <div className="w-full">
+              <p className="mb-2 text-md lg:text-lg font-medium text-white">
+                Systèmes réseaux
+              </p>
+              <p className="text-xs text-gray-400">
+                Linux, TCP/IP, UDP, DHCP, DNS, NAT, VPN, SSL/TLS, Reverse Proxy, HTTP, WebSocket
+              </p>
+            </div>
+          </div>
+
+          <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+            <div className="w-full">
+              <p className="mb-2 text-md lg:text-lg font-medium text-white">
+                Sécurité, Rétro-ingénierie
+              </p>
+              <p className="text-xs text-gray-400">
+                Chiffrement, Analyse statique, Analyse dynamique, Décompilation
+              </p>
+            </div>
+          </div>
+
+          <div className="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+            <div className="w-full">
+              <p className="mb-2 text-md lg:text-lg font-medium text-white">
+                Électronique embarquée
+              </p>
+              <p className="text-xs text-gray-400">
+                ESP32, Arduino, Raspberry Pi, EasyEDA, Fusion 360
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </>

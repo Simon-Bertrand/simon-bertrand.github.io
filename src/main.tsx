@@ -86,7 +86,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="col-span-2 md:overflow-auto p-3">
+        <div className="lg:col-span-2 md:overflow-auto p-3">
           <Routes>
             <Route element={<AnimationLayout />}>
               {Menus.map((x) => {

@@ -157,7 +157,7 @@ export const InfosStats = [
         ? "9"
         : (new Date().getFullYear() - 2017).toString(),
   },
-  { name: "Articles", value: "0" },
+  { name: "Articles", value: "2" },
   {
     name: "Années de développement",
     value: (new Date().getFullYear() - 2012).toString(),
@@ -198,33 +198,48 @@ export const EducationItems = [
 
 export const ExperienceItems = [
   {
-    title: "Ingénieur doctorant en deep learning",
-    company: "CEA",
+    title: "Ingénieur-Doctorant | Recalage robuste d'images multimodales",
+    company: "CEA, Bordeaux",
     description:
-      "Recalage d'images multimodales par réseaux de neurones pour la navigation hybridée",
-    date: "3 ans - 2026",
+      "Navigation de drones assistée par terrain, base de données observation de la Terre, réseaux de neurones pour recalage, supercalculateur (SLURM, A100 & H100)",
+    date: "Octobre 2023 - Aujourd'hui",
     src: "CEA.png",
   },
   {
-    title: "Ingénieur en deep learning",
-    company: "Thales Nederland B.V.",
-    description: "Segmentation sémantique de vidéos par deep learning",
-    date: "6 mois - 2023",
+    title: "Ingénieur-Doctorant | Chargé d'enseignement vacataire",
+    company: "ENSEIRB-MATMECA, Bordeaux",
+    description:
+      "Cours de Programmation C, Programmation Python, Deep Learning, Expert IA Hackathon (100h+)",
+    date: "Octobre 2023 - Aujourd'hui",
+    src: "U-Bordeaux.png",
+  },
+  {
+    title: "Militaire du rang | Réserviste opérationnel",
+    company: "Armée de l'Air et de l'Espace, Bordeaux",
+    description: "Réserviste R01 de la Garde Nationale spécialisé en protection et défense",
+    date: "Juin 2017 - Aujourd'hui",
+    src: "SainteMarieGrandLeBrun.png",
+  },
+  {
+    title: "Ingénieur-Stagiaire (Thales)",
+    company: "Thales Netherlands, Hengelo, Pays-Bas",
+    description: "Ajout de fonctionnalités de vision/IA pour la caméra GateKeeper",
+    date: "2023 (6 mois)",
     src: "Thales.png",
   },
   {
-    title: "Ingénieur logiciel",
-    company: "Groupama Grand Est",
-    description: "Développement d'outils intranet C#, T-SQL et ASP .NET MVC",
-    date: "3 mois - 2022",
+    title: "Ingénieur-Stagiaire (Groupama)",
+    company: "Groupama Grand Est, Strasbourg",
+    description: "Développement web C#, deux applications produites",
+    date: "2022 (3 mois)",
     src: "Groupama.png",
   },
   {
-    title: "Ingénieur en Data Mining",
-    company: "iCube",
+    title: "Ingénieur-Stagiaire (iCUBE)",
+    company: "iCUBE Strasbourg",
     description:
-      "Développement d'outils d'analyse de qualité des clusters de données",
-    date: "2 mois - 2021",
+      "Librairie open-source Python pour le minage de données",
+    date: "2021 (2 mois)",
     src: "iCube.png",
   },
 ];
