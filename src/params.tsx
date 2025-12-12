@@ -196,7 +196,7 @@ export const EducationItems = [
   },
 ];
 
-export const ExperienceItems = [
+export const ExperienceItems : {title:string, company:string, description:string, date:string, src?:string}[] = [
   {
     title: "Ingénieur-Doctorant | Recalage robuste d'images multimodales",
     company: "CEA, Bordeaux",
@@ -218,7 +218,7 @@ export const ExperienceItems = [
     company: "Armée de l'Air et de l'Espace, Bordeaux",
     description: "Réserviste R01 de la Garde Nationale spécialisé en protection et défense",
     date: "Juin 2017 - Aujourd'hui",
-    src: "SainteMarieGrandLeBrun.png",
+    src: undefined
   },
   {
     title: "Ingénieur-Stagiaire (Thales)",

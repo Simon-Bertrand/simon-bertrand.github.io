@@ -1,6 +1,6 @@
 import { ExperienceItems } from "../params"
 
-function ExperienceEntity({title, description, date, company, src} : {title : string, description : string, date: string, company : string, src:string }) {
+function ExperienceEntity({title, description, date, company, src} : {title : string, description : string, date: string, company : string, src?:string }) {
     return (
         <div className="flex max-w-md overflow-hidden bg-color2 rounded-lg shadow-lg">
             <div className="w-full p-4 text-center my-auto">
@@ -18,7 +18,7 @@ function ExperienceEntity({title, description, date, company, src} : {title : st
                         {date}
                     </p>
                 </div>
-                <img className="w-1/2 mx-auto m-3 object-contain grayscale brightness-150	" src={"logos/"+src} />
+                {src && <img className="w-1/2 mx-auto m-3 object-contain grayscale brightness-150	" src={"logos/"+src} />}
     
             </div>
         </div>
