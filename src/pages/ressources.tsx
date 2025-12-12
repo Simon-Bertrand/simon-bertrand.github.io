@@ -13,6 +13,22 @@ export default function RessourcesPage() {
     return <>
         <h1 className="text-center p-5">Ressources</h1>
         <Accordion allowZeroExpanded>
+        <AccordionItem>
+                <AccordionItemHeading>
+                    <AccordionItemButton>
+                        Publications
+                    </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                    <p>
+                        <a className='flex' target="_blank" href="storage/Article1-These.pdf" title="Rapport Thales">
+                            <div className="pdf w-1/3" style = {{ backgroundImage : `url(${logoPdf})` }} />
+                            <p className='my-auto w-2/3'>Learning-Based SAR–Optical Registration for Navigation: Insights From a Multiyear, Multiseason Continental-Scale Dataset - CEA</p>
+                        </a>
+                       
+                    </p>
+                </AccordionItemPanel>
+            </AccordionItem>
             <AccordionItem>
                 <AccordionItemHeading>
                     <AccordionItemButton>

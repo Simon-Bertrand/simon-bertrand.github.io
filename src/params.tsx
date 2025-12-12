@@ -157,7 +157,7 @@ export const InfosStats = [
         ? "9"
         : (new Date().getFullYear() - 2017).toString(),
   },
-  { name: "Articles", value: "2" },
+  { name: "Articles", value: "1" },
   {
     name: "Années de développement",
     value: (new Date().getFullYear() - 2012).toString(),
