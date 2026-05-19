@@ -1,6 +1,7 @@
 import EducationPage from "./pages/education";
 import ExperiencesPage from "./pages/experiences";
 import InfosPage from "./pages/infos";
+import ProjectsPage from "./pages/projects";
 import RessourcesPage from "./pages/ressources";
 
 export const Menus = [
@@ -54,6 +55,24 @@ export const Menus = [
         <path
           fill="currentColor"
           d="M4 6h16v10H4m16 2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4c-1.11 0-2 .89-2 2v10a2 2 0 0 0 2 2H0v2h24v-2h-4Z"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: "Projets",
+    href: "projects",
+    page: <ProjectsPage />,
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M4 4h7v7H4V4m9 0h7v7h-7V4M4 13h7v7H4v-7m9 0h7v7h-7v-7m-7-7v3h3V6H6m9 0v3h3V6h-3M6 15v3h3v-3H6m9 0v3h3v-3h-3Z"
         />
       </svg>
     ),
@@ -114,6 +133,23 @@ export const SocialMedias = [
     href: "https://github.com/Simon-Bertrand",
   },
   {
+    name: "Google Scholar",
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M12 24a7 7 0 1 1 0-14a7 7 0 0 1 0 14ZM3.6 8.7L12 0l8.4 8.7l-3.1 2.5A8.96 8.96 0 0 0 12 9.5c-1.95 0-3.75.62-5.23 1.68L3.6 8.7Z"
+        />
+      </svg>
+    ),
+    href: "https://scholar.google.fr/citations?user=4FK_9vAAAAAJ&hl=fr&authuser=1",
+  },
+  {
     name: "Twitter",
     svg: (
       <svg
@@ -129,24 +165,7 @@ export const SocialMedias = [
       </svg>
     ),
     href: "https://twitter.com/SiMB_dev",
-  },
-  {
-    name: "YouTube",
-    svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="currentColor"
-          d="m10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73Z"
-        />
-      </svg>
-    ),
-    href: "https://www.youtube.com/@simonb.9716/videos",
-  },
+  }
 ];
 
 export const InfosStats = [
@@ -201,7 +220,7 @@ export const ExperienceItems : {title:string, company:string, description:string
     title: "Ingénieur-Doctorant | Recalage robuste d'images multimodales",
     company: "CEA, Bordeaux",
     description:
-      "Navigation de drones assistée par terrain, base de données observation de la Terre, réseaux de neurones pour recalage, supercalculateur (SLURM, A100 & H100)",
+      "Navigation de drones assistée par terrain, base de données observation de la Terre, réseaux de neurones pour recalage SAR-optique, supercalculateur SLURM sur GPU A100 & H100",
     date: "Octobre 2023 - Aujourd'hui",
     src: "CEA.png",
   },
@@ -209,7 +228,7 @@ export const ExperienceItems : {title:string, company:string, description:string
     title: "Ingénieur-Doctorant | Chargé d'enseignement vacataire",
     company: "ENSEIRB-MATMECA, Bordeaux",
     description:
-      "Cours de Programmation C, Programmation Python, Deep Learning, Expert IA Hackathon (100h+)",
+      "Cours de Programmation C, Programmation Python, Deep Learning, expert IA Hackathon, plus de 100h d'enseignement",
     date: "Octobre 2023 - Aujourd'hui",
     src: "U-Bordeaux.png",
   },
@@ -223,14 +242,14 @@ export const ExperienceItems : {title:string, company:string, description:string
   {
     title: "Ingénieur-Stagiaire (Thales)",
     company: "Thales Netherlands, Hengelo, Pays-Bas",
-    description: "Ajout de fonctionnalités de vision/IA pour la caméra GateKeeper",
+    description: "Ajout de fonctionnalités de vision par ordinateur et d'IA pour la caméra GateKeeper",
     date: "2023 (6 mois)",
     src: "Thales.png",
   },
   {
     title: "Ingénieur-Stagiaire (Groupama)",
     company: "Groupama Grand Est, Strasbourg",
-    description: "Développement web C#, deux applications produites",
+    description: "Développement web C# avec deux applications livrées en production",
     date: "2022 (3 mois)",
     src: "Groupama.png",
   },
@@ -238,7 +257,7 @@ export const ExperienceItems : {title:string, company:string, description:string
     title: "Ingénieur-Stagiaire (iCUBE)",
     company: "iCUBE Strasbourg",
     description:
-      "Librairie open-source Python pour le minage de données",
+      "Librairie open-source Python pour le minage de données et l'analyse de clusters non-supervisés",
     date: "2021 (2 mois)",
     src: "iCube.png",
   },

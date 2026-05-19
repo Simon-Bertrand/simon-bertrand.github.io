@@ -1,12 +1,8 @@
 export default function Pages({children, href} : {children : JSX.Element, href:string}) {
     return (
-      <div id={href} className="page  overflow-auto " >
-        <div className="flex gap-x-3 items-center">
-            
-            {/* <h3>{href}</h3> */}
-        </div>
+      <section id={href} className="page">
         {children}
-      </div>
+      </section>
     )
   }
   

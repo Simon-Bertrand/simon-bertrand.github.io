@@ -1,26 +1,91 @@
 import { InfosStats } from "../params";
 
+const focusAreas = [
+  "Computer Vision",
+  "Deep Learning Research",
+  "Software Engineering",
+  "Robust AI Systems",
+];
+
+const keyWorks = [
+  {
+    title: "Recalage SAR-optique pour la navigation",
+    description:
+      "Recherche doctorale sur le recalage robuste d'images multimodales pour la navigation assistée par terrain.",
+    meta: "CEA | Vision par ordinateur | HPC",
+    href: "storage/Article1-These.pdf",
+  },
+  {
+    title: "Segmentation sémantique vidéo",
+    description:
+      "Travaux de vision par ordinateur et deep learning appliqués à des flux vidéo industriels.",
+    meta: "Thales | Deep Learning | Computer Vision",
+    href: "storage/Rapport-Thales.pdf",
+  },
+  {
+    title: "Librairie Python open-source",
+    description:
+      "Développement logiciel scientifique pour l'analyse de qualité de clusters non-supervisés.",
+    meta: "iCUBE | Python | Data Mining",
+    href: "storage/Rapport-iCube.pdf",
+  },
+];
+
 export default function InfosPage() {
   return (
     <>
-      <div className="text-center w-full mx-auto  px-4 sm:px-6 lg:py-10 lg:px-8 z-20">
+      <div className="profile-hero">
         <h2 className="text-3xl font-extrabold sm:text-4xl text-white">
           <span className="block">Simon Bertrand</span>
-          <span className="color">Ingénieur doctorant en deep learning</span>
+          <span className="color">Doctorant en deep learning</span>
         </h2>
-        <p className="text-xl my-4 max-w-xl mx-auto text-gray-400">
-          <ul>
-            <li>Science des données et IA (ML, DL, CV)</li>
-            <li>Software Engineering (Web, Logiciels)</li>
-          </ul>
+
+        <p className="hero-summary">
+          Ingénieur-doctorant spécialisé en vision par ordinateur, recalage
+          multimodal et systèmes IA robustes, avec une expérience croisée en
+          recherche appliquée, industrie et ingénierie logicielle.
         </p>
+
+        <div className="focus-tags">
+          {focusAreas.map((area) => (
+            <span key={area}>{area}</span>
+          ))}
+        </div>
+
+        <div className="hero-actions">
+          <a
+            className="primary-action"
+            href="https://www.linkedin.com/in/simonbertrand-engineering/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Me contacter
+          </a>
+          <a
+            className="secondary-action"
+            href="https://github.com/Simon-Bertrand"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Voir GitHub
+          </a>
+          <a
+            className="secondary-action"
+            href="storage/Article1-These.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Publication
+          </a>
+        </div>
+
         <section>
-          <div className="container flex justify-around pt-3">
+          <div className="hero-stats">
             {InfosStats.map((x) => (
-              <div>
+              <div key={x.name}>
                 <h5 className="text-5xl font-bold text-white">
                   <span className="inline text-white">{x.value}</span>
-                  <span className="color">+</span>
+                  {x.name !== "Articles" && <span className="color">+</span>}
                 </h5>
                 <p className="text-xs font-medium tracking-wide text-indigo-100 uppercase">
                   {x.name}
@@ -31,10 +96,15 @@ export default function InfosPage() {
         </section>
       </div>
 
-      <div className="max-w-screen-xl p-3 mx-auto">
-        <h2 className="mb-8 text-3xl font-extrabold border-b-4">
+
+
+      <div className="max-w-screen-xl p-3 mx-auto section-block">
+        <div className="section-heading">
+          <p>Stack technique</p>
+          <h2>
           Domaines techniques
-        </h2>
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 text-center items-center gap-8">
 
