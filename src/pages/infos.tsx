@@ -7,29 +7,7 @@ const focusAreas = [
   "Robust AI Systems",
 ];
 
-const keyWorks = [
-  {
-    title: "Recalage SAR-optique pour la navigation",
-    description:
-      "Recherche doctorale sur le recalage robuste d'images multimodales pour la navigation assistée par terrain.",
-    meta: "CEA | Vision par ordinateur | HPC",
-    href: "storage/Article1-These.pdf",
-  },
-  {
-    title: "Segmentation sémantique vidéo",
-    description:
-      "Travaux de vision par ordinateur et deep learning appliqués à des flux vidéo industriels.",
-    meta: "Thales | Deep Learning | Computer Vision",
-    href: "storage/Rapport-Thales.pdf",
-  },
-  {
-    title: "Librairie Python open-source",
-    description:
-      "Développement logiciel scientifique pour l'analyse de qualité de clusters non-supervisés.",
-    meta: "iCUBE | Python | Data Mining",
-    href: "storage/Rapport-iCube.pdf",
-  },
-];
+
 
 export default function InfosPage() {
   return (
