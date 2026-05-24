@@ -1,0 +1,94 @@
+---
+import { withBase } from '@/lib/site';
+
+const indexUrl = withBase('/generated/search-index.json');
+---
+
+<div class="search-shell p-5 sm:p-6">
+  <label class="sr-only" for="search-input">Search articles and notes</label>
+  <input
+    id="search-input"
+    type="search"
+    placeholder="Search for CUDA kernels, derivations, notes, or tags"
+    class="w-full rounded-lg border border-[color:var(--border)] bg-[color:var(--bg)] px-4 py-3 text-[color:var(--text)] outline-none transition placeholder:text-[color:var(--text-muted)] focus:border-[color:var(--accent)]"
+  />
+
+  <div id="search-summary" class="mt-4 text-sm text-[color:var(--text-muted)]"></div>
+  <ul id="search-results" class="mt-4 grid gap-4"></ul>
+</div>
+
+<script is:inline type="module" define:vars={{ indexUrl }}>
+  const input = document.querySelector('#search-input');
+  const results = document.querySelector('#search-results');
+  const summary = document.querySelector('#search-summary');
+
+  const normalize = (value) => value.toLowerCase().replace(/[^a-z0-9\s-]/g, ' ');
+  const scoreEntry = (entry, query) => {
+    const text = normalize([entry.title, entry.description, entry.tags.join(' '), entry.text].join(' '));
+    if (text.includes(query)) {
+      return 4;
+    }
+
+    return query
+      .split(/\s+/)
+      .filter(Boolean)
+      .reduce((score, term) => score + (text.includes(term) ? 1 : 0), 0);
+  };
+
+  const render = (items, query) => {
+    results.innerHTML = '';
+    summary.textContent = query ? `${items.length} results for "${query}"` : `${items.length} indexed entries`;
+
+    for (const item of items.slice(0, 12)) {
+      const li = document.createElement('li');
+      li.className = 'surface rounded-lg p-5';
+
+      const meta = document.createElement('div');
+      meta.className = 'flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-[color:var(--text-muted)]';
+
+      const kind = document.createElement('span');
+      kind.textContent = item.kind;
+      const separator = document.createElement('span');
+      separator.textContent = '/';
+      const time = document.createElement('time');
+      time.textContent = new Date(item.date).toLocaleDateString('en', { year: 'numeric', month: 'short', day: '2-digit' });
+      meta.append(kind, separator, time);
+
+      const link = document.createElement('a');
+      link.href = item.href;
+      link.className = 'mt-3 block text-lg font-semibold tracking-tight text-[color:var(--text)] hover:text-[color:var(--accent)]';
+      link.textContent = item.title;
+
+      const description = document.createElement('p');
+      description.className = 'mt-2 text-sm leading-6 text-[color:var(--text-muted)]';
+      description.textContent = item.description;
+
+      const text = document.createElement('p');
+      text.className = 'mt-3 text-sm leading-6 text-[color:var(--text-muted)]';
+      text.textContent = item.text;
+
+      li.append(meta, link, description, text);
+      results.appendChild(li);
+    }
+  };
+
+  const response = await fetch(indexUrl);
+  const entries = await response.json();
+  render(entries, '');
+
+  input?.addEventListener('input', () => {
+    const query = normalize(input.value.trim());
+    if (!query) {
+      render(entries, '');
+      return;
+    }
+
+    const ranked = entries
+      .map((entry) => ({ entry, score: scoreEntry(entry, query) }))
+      .filter((item) => item.score > 0)
+      .sort((left, right) => right.score - left.score || new Date(right.entry.date).getTime() - new Date(left.entry.date).getTime())
+      .map((item) => item.entry);
+
+    render(ranked, input.value.trim());
+  });
+</script>

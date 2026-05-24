@@ -1,0 +1,12 @@
+---
+import { withBase } from '@/lib/site';
+
+const { tag, href } = Astro.props as { tag: string; href?: string };
+---
+
+<a
+  href={href ?? withBase(`/tags/${encodeURIComponent(tag)}/`)}
+  class="inline-flex items-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-3 py-1 text-sm text-[color:var(--text-muted)] transition hover:border-[color:var(--accent)] hover:text-[color:var(--text)]"
+>
+  {tag}
+</a>

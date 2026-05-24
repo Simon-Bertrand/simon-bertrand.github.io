@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { experienceItems } from "../data/params";
+---
+
+<BaseLayout>
+  <h1 class="text-center p-5">Expériences</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+    {
+      experienceItems.map((item) => (
+        <div class="flex justify-center w-full">
+          <div class="flex flex-col max-w-md w-full overflow-hidden bg-color2 rounded-lg shadow-lg m-2">
+            <div class="w-full p-4 text-center m-auto">
+              <h1 class="text-lg font-bold text-white">{item.title}</h1>
+              <p class="mt-2 text-sm text-gray-400">{item.company}</p>
+              <p class="mt-2 text-xs text-gray-400">{item.description}</p>
+              <div class="flex justify-center mt-3 items-center">
+                <p class="text-sm text-center text-gray-200">{item.date}</p>
+              </div>
+              {
+                item.src && (
+                  <img
+                    class="w-1/2 mx-auto m-3 object-contain grayscale brightness-150"
+                    src={`/logos/${item.src}`}
+                    alt=""
+                  />
+                )
+              }
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</BaseLayout>

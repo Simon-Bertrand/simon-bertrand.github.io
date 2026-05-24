@@ -1,0 +1,231 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="section-heading projects-heading">
+    <p>GitHub</p>
+    <h1>Projets</h1>
+    <span>Dépôts publics chargés depuis l'API GitHub</span>
+  </div>
+
+  <div class="project-state" data-projects-loading>
+    <p>Chargement des projets GitHub...</p>
+  </div>
+
+  <div class="project-state project-state-error" data-projects-error hidden>
+    <p data-projects-error-message>Impossible de charger les projets GitHub.</p>
+    <a href="https://api.github.com/users/Simon-Bertrand/repos" target="_blank" rel="noreferrer">
+      Ouvrir l'API GitHub
+    </a>
+  </div>
+
+  <div data-projects-content hidden>
+    <div class="projects-toolbar">
+      <p data-projects-count></p>
+      <div class="project-sort">
+        <button type="button" class="project-sort-active" data-sort-mode="featured">
+          Étoiles + récent
+        </button>
+        <button type="button" data-sort-mode="stars">Plus étoilés</button>
+        <button type="button" data-sort-mode="recent">Plus récents</button>
+      </div>
+      <a href="https://github.com/Simon-Bertrand" target="_blank" rel="noreferrer">
+        Profil GitHub
+      </a>
+    </div>
+
+    <div class="projects-grid" data-projects-grid></div>
+
+    <div class="pagination">
+      <button type="button" data-page-prev>Précédent</button>
+      <div data-page-list></div>
+      <button type="button" data-page-next>Suivant</button>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  type GithubRepo = {
+    id: number;
+    name: string;
+    html_url: string;
+    description: string | null;
+    language: string | null;
+    stargazers_count: number;
+    forks_count: number;
+    updated_at: string;
+    topics?: string[];
+    archived: boolean;
+    fork: boolean;
+  };
+
+  type SortMode = "featured" | "stars" | "recent";
+
+  const reposUrl = "https://api.github.com/users/Simon-Bertrand/repos";
+  const pageSize = 6;
+  let repos: GithubRepo[] = [];
+  let page = 1;
+  let sortMode: SortMode = "featured";
+
+  const loading = document.querySelector<HTMLElement>("[data-projects-loading]");
+  const error = document.querySelector<HTMLElement>("[data-projects-error]");
+  const errorMessage = document.querySelector<HTMLElement>("[data-projects-error-message]");
+  const content = document.querySelector<HTMLElement>("[data-projects-content]");
+  const count = document.querySelector<HTMLElement>("[data-projects-count]");
+  const grid = document.querySelector<HTMLElement>("[data-projects-grid]");
+  const pageList = document.querySelector<HTMLElement>("[data-page-list]");
+  const prevButton = document.querySelector<HTMLButtonElement>("[data-page-prev]");
+  const nextButton = document.querySelector<HTMLButtonElement>("[data-page-next]");
+  const sortButtons = document.querySelectorAll<HTMLButtonElement>("[data-sort-mode]");
+
+  function formatDate(value: string) {
+    return new Intl.DateTimeFormat("fr-FR", {
+      month: "short",
+      year: "numeric",
+    }).format(new Date(value));
+  }
+
+  function sortedRepos() {
+    return [...repos].sort((a, b) => {
+      const starsDiff = b.stargazers_count - a.stargazers_count;
+      const recentDiff =
+        new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
+
+      if (sortMode === "stars") {
+        return starsDiff || recentDiff;
+      }
+
+      if (sortMode === "recent") {
+        return recentDiff || starsDiff;
+      }
+
+      return starsDiff || recentDiff;
+    });
+  }
+
+  function createElement<K extends keyof HTMLElementTagNameMap>(
+    tag: K,
+    className?: string,
+    text?: string,
+  ) {
+    const element = document.createElement(tag);
+    if (className) {
+      element.className = className;
+    }
+    if (text) {
+      element.textContent = text;
+    }
+    return element;
+  }
+
+  function render() {
+    const sorted = sortedRepos();
+    const totalPages = Math.max(1, Math.ceil(sorted.length / pageSize));
+    const visibleRepos = sorted.slice((page - 1) * pageSize, page * pageSize);
+
+    if (!grid || !pageList || !count || !prevButton || !nextButton) {
+      return;
+    }
+
+    count.textContent = `${sorted.length} dépôts publics · page ${page}/${totalPages}`;
+    grid.replaceChildren();
+
+    for (const repo of visibleRepos) {
+      const card = createElement("a", "project-card");
+      card.href = repo.html_url;
+      card.target = "_blank";
+      card.rel = "noreferrer";
+
+      const header = createElement("div", "project-card-header");
+      header.append(createElement("h2", undefined, repo.name));
+      header.append(createElement("span", undefined, repo.language ?? "Code"));
+      card.append(header);
+
+      card.append(
+        createElement(
+          "p",
+          undefined,
+          repo.description ??
+            "Projet public GitHub, consultable directement depuis le dépôt.",
+        ),
+      );
+
+      if (repo.topics?.length) {
+        const topics = createElement("div", "project-topics");
+        for (const topic of repo.topics.slice(0, 4)) {
+          topics.append(createElement("span", undefined, topic));
+        }
+        card.append(topics);
+      }
+
+      const meta = createElement("div", "project-meta");
+      meta.append(createElement("span", undefined, `${repo.stargazers_count} stars`));
+      meta.append(createElement("span", undefined, `${repo.forks_count} forks`));
+      meta.append(createElement("span", undefined, `Mis à jour ${formatDate(repo.updated_at)}`));
+      if (repo.fork) {
+        meta.append(createElement("span", undefined, "Fork"));
+      }
+      if (repo.archived) {
+        meta.append(createElement("span", undefined, "Archivé"));
+      }
+      card.append(meta);
+      grid.append(card);
+    }
+
+    pageList.replaceChildren();
+    for (let index = 1; index <= totalPages; index += 1) {
+      const button = createElement("button", index === page ? "pagination-active" : undefined, `${index}`);
+      button.type = "button";
+      button.addEventListener("click", () => {
+        page = index;
+        render();
+      });
+      pageList.append(button);
+    }
+
+    prevButton.disabled = page === 1;
+    nextButton.disabled = page === totalPages;
+  }
+
+  for (const button of sortButtons) {
+    button.addEventListener("click", () => {
+      sortMode = button.dataset.sortMode as SortMode;
+      page = 1;
+      sortButtons.forEach((item) => item.classList.toggle("project-sort-active", item === button));
+      render();
+    });
+  }
+
+  prevButton?.addEventListener("click", () => {
+    page = Math.max(1, page - 1);
+    render();
+  });
+
+  nextButton?.addEventListener("click", () => {
+    page = Math.min(Math.max(1, Math.ceil(repos.length / pageSize)), page + 1);
+    render();
+  });
+
+  fetch(`${reposUrl}?per_page=100`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Impossible de charger les projets GitHub.");
+      }
+      return response.json() as Promise<GithubRepo[]>;
+    })
+    .then((data) => {
+      repos = data;
+      loading?.setAttribute("hidden", "");
+      content?.removeAttribute("hidden");
+      render();
+    })
+    .catch((err: unknown) => {
+      loading?.setAttribute("hidden", "");
+      if (errorMessage) {
+        errorMessage.textContent =
+          err instanceof Error ? err.message : "Impossible de charger les projets GitHub.";
+      }
+      error?.removeAttribute("hidden");
+    });
+</script>

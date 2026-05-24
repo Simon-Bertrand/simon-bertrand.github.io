@@ -1,0 +1,199 @@
+/* Syntax Highlighting for Pandoc/Quarto Generated Code Blocks */
+/* This file is NOT processed by Tailwind to prevent CSS purging */
+
+/* Comments - co class */
+.co {
+  color: #6b7280 !important;
+  font-style: italic !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .co {
+  color: #d1d5db !important;
+  font-style: italic !important;
+  background: transparent !important;
+}
+
+/* Keywords - kw class */
+.kw {
+  color: #dc2626 !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .kw {
+  color: #ff4444 !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+/* Data types - dt class */
+.dt {
+  color: #7e22ce !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .dt {
+  color: #e879f9 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Decimal numbers - dv class */
+.dv {
+  color: #ea580c !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .dv {
+  color: #fb923c !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Binary numbers - bn class */
+.bn {
+  color: #d97706 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .bn {
+  color: #fbbf24 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Floats - fl class */
+.fl {
+  color: #b45309 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .fl {
+  color: #fcd34d !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Strings - st class */
+.st {
+  color: #059669 !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .st {
+  color: #86efac !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+/* Functions - fu class */
+.fu {
+  color: #0284c7 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .fu {
+  color: #38bdf8 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Variables - va class */
+.va {
+  color: #c084fc !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .va {
+  color: #e9d5ff !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+/* Built-in functions - bu class */
+.bu {
+  color: #6d28d9 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .bu {
+  color: #d8b4fe !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Operators - op class */
+.op {
+  color: #0891b2 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .op {
+  color: #06b6d4 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Imports - im class */
+.im {
+  color: #dc2626 !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .im {
+  color: #ff4444 !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+/* Control flow - cf class */
+.cf {
+  color: #ea580c !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .cf {
+  color: #ff6b35 !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+/* String parts - ss (string start), sc (string content/interpolation) classes */
+.ss,
+.sc {
+  color: #059669 !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .ss,
+html[data-theme='dark'] .sc {
+  color: #86efac !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+/* Character escapes - ch class */
+.ch {
+  color: #059669 !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .ch {
+  color: #86efac !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}

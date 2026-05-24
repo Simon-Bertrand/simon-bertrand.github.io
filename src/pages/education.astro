@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { educationItems } from "../data/params";
+---
+
+<BaseLayout>
+  <h1 class="text-center p-5">Éducation</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+    {
+      educationItems.map((item) => (
+        <div class="flex justify-center w-full">
+          <div class="flex flex-col max-w-md w-full overflow-hidden bg-color2 rounded-lg shadow-lg m-2">
+            <div class="w-full p-4 text-center m-auto">
+              <h1 class="text-lg font-bold text-white">{item.title}</h1>
+              <h2 class="text-xs italic text-gray-400">Option : {item.option}</h2>
+              <p class="mt-2 text-sm text-gray-400">{item.description}</p>
+              <img
+                class="w-1/2 mx-auto m-3 object-contain grayscale brightness-120"
+                src={`/logos/${item.src}`}
+                alt=""
+              />
+              <div class="flex justify-center mt-3 items-center">
+                <p class="text-xl text-center text-gray-200">{item.date}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</BaseLayout>

@@ -1,0 +1,9 @@
+---
+const { id, href, label } = Astro.props as { id: string; href?: string; label?: string };
+---
+
+<a href={href ?? `#citation-${id}`} class="inline-flex items-baseline gap-0.5 align-baseline text-sm text-[color:var(--accent)]">
+  <span>[</span>
+  <span>{label ?? id}</span>
+  <span>]</span>
+</a>

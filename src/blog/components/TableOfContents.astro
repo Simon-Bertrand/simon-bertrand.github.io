@@ -1,0 +1,21 @@
+---
+const { headings } = Astro.props as { headings: Array<{ depth: number; slug: string; text: string }> };
+const items = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
+---
+
+{items.length > 0 && (
+  <aside class="surface sticky top-24 rounded-lg p-5">
+    <div class="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--text-muted)]">Contents</div>
+    <nav class="mt-4">
+      <ol class="space-y-3 text-sm leading-6 text-[color:var(--text-muted)]">
+        {items.map((heading) => (
+          <li class={heading.depth === 3 ? 'pl-4' : ''}>
+            <a href={`#${heading.slug}`} class="hover:text-[color:var(--text)]">
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  </aside>
+)}

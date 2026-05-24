@@ -1,0 +1,19 @@
+---
+const { entries } = Astro.props as { entries: Array<{ href: string; slug: string; data: { title: string; description: string } }> };
+---
+
+{entries.length > 0 && (
+  <section class="mt-12 border-t border-[color:var(--border)] pt-8">
+    <h2 class="text-lg font-semibold tracking-tight text-[color:var(--text)]">Referenced by</h2>
+    <ul class="mt-4 space-y-3">
+      {entries.map((entry) => (
+        <li class="surface rounded-lg p-4">
+          <a href={entry.href} class="font-medium text-[color:var(--text)] hover:text-[color:var(--accent)]">
+            {entry.data.title}
+          </a>
+          <p class="mt-1 text-sm text-[color:var(--text-muted)]">{entry.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

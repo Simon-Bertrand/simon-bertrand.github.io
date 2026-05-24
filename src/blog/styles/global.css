@@ -1,0 +1,781 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --bg-elevated: #ffffff;
+  --bg-muted: #e8eef7;
+  --text: #111827;
+  --text-muted: #566274;
+  --border: #ccd7e6;
+  --accent: #2563eb;
+  --accent-strong: #0f172a;
+  --code-bg: #eaf0f8;
+  --code-text: #0f172a;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 16px 42px rgba(37, 99, 235, 0.1);
+  
+  /* Shiki CSS Variables for Light Theme */
+  --shiki-light: #1a1a1a;
+  --shiki-light-bg: #eaf0f8;
+  --shiki-light-1: #0f766e;
+  --shiki-light-2: #2563eb;
+  --shiki-light-3: #6d28d9;
+  --shiki-light-4: #be123c;
+  --shiki-light-5: #7c3aed;
+  --shiki-light-6: #0369a1;
+  --shiki-light-7: #0e7490;
+  --shiki-light-8: #b45309;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #070b12;
+  --bg-elevated: #0d1420;
+  --bg-muted: #111c2c;
+  --text: #eef5ff;
+  --text-muted: #9ba9bd;
+  --border: #203047;
+  --accent: #58a6ff;
+  --accent-strong: #9bd1ff;
+  --code-bg: #050914;
+  --code-text: #dbeafe;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 18px 60px rgba(0, 49, 112, 0.3);
+  
+  /* Shiki CSS Variables for Dark Theme */
+  --shiki-dark: #e8e8e8;
+  --shiki-dark-bg: #050914;
+  --shiki-dark-1: #7dd3fc;
+  --shiki-dark-2: #60a5fa;
+  --shiki-dark-3: #a78bfa;
+  --shiki-dark-4: #fb7185;
+  --shiki-dark-5: #c084fc;
+  --shiki-dark-6: #38bdf8;
+  --shiki-dark-7: #67e8f9;
+  --shiki-dark-8: #facc15;
+}
+
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(37, 99, 235, 0.08), transparent 24rem),
+    linear-gradient(90deg, rgba(88, 166, 255, 0.06), transparent 32rem),
+    var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', 'Source Sans 3', 'Avenir Next', 'Segoe UI', sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+[class*='tracking-tight'] {
+  letter-spacing: 0 !important;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-strong);
+}
+
+html[data-theme='dark'] a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  font-weight: 500;
+}
+
+html[data-theme='dark'] a:hover {
+  color: var(--accent-strong);
+}
+
+::selection {
+  background: rgba(88, 166, 255, 0.3);
+}
+
+.prose {
+  color: var(--text);
+  max-width: 90ch;
+}
+
+.prose :where(h1, h2, h3, h4) {
+  color: var(--text);
+  scroll-margin-top: 6rem;
+}
+
+.prose :where(code) {
+  background: var(--code-bg);
+  color: var(--code-text);
+  border-radius: 0.35rem;
+  padding: 0.15rem 0.35rem;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+/* Override code color for syntax-highlighted spans */
+.prose code span[class] {
+  background-color: transparent;
+}
+
+.prose pre code span[class] {
+  background-color: transparent;
+}
+
+.sourceCode span[class] {
+  background-color: transparent;
+}
+
+.prose :where(pre code) {
+  background: transparent;
+  padding: 0;
+}
+
+.prose :where(pre) {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.prose :where(blockquote) {
+  border-left-color: var(--accent);
+  background: rgba(88, 166, 255, 0.08);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.prose :where(hr) {
+  border-color: var(--border);
+}
+
+.prose :where(table) {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.prose :where(th, td) {
+  border-color: var(--border);
+}
+
+.surface {
+  background: color-mix(in srgb, var(--bg-elevated) 90%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-lockup:hover {
+  color: var(--text);
+}
+
+.intro-band {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent 55%),
+    var(--bg-elevated);
+  box-shadow: var(--shadow);
+}
+
+.profile-panel {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg-muted);
+  box-shadow: var(--shadow);
+}
+
+html[data-theme='dark'] .profile-panel {
+  box-shadow: 0 0 0 1px rgba(88, 166, 255, 0.12), 0 22px 70px rgba(0, 49, 112, 0.35);
+}
+
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.65rem 1rem;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 650;
+}
+
+.button-primary {
+  border: 1px solid var(--accent);
+  background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+  color: #f8fbff;
+}
+
+.button-primary:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #7dd3fc);
+  border-color: var(--accent-strong);
+}
+
+.button-secondary {
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+}
+
+.button-secondary:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.colab-button {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 0.45rem;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
+  color: var(--text);
+  padding: 0.35rem 0.65rem;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.colab-button:hover {
+  border-color: color-mix(in srgb, #f9ab00 55%, var(--border));
+  color: var(--accent-strong);
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-heading h2,
+.archive-year h2 {
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.section-heading a {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.article-card {
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  box-shadow: 0 0 0 1px rgba(88, 166, 255, 0.12), var(--shadow);
+}
+
+.search-shell {
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.metric-tile {
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  padding: 1rem;
+}
+
+.metric-tile span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.metric-tile strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+  transform: translateY(-200%);
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  z-index: 50;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Shiki Syntax Highlighting CSS Variables */
+:root {
+  --shiki-light: #1a1a1a;
+  --shiki-light-bg: #eaf0f8;
+  --shiki-light-1: #0f766e;
+  --shiki-light-2: #2563eb;
+  --shiki-light-3: #6d28d9;
+  --shiki-light-4: #be123c;
+  --shiki-light-5: #7c3aed;
+  --shiki-light-6: #0369a1;
+  --shiki-light-7: #0e7490;
+  --shiki-light-8: #b45309;
+}
+
+html[data-theme='dark'] {
+  --shiki-dark: #dbeafe;
+  --shiki-dark-bg: #050914;
+  --shiki-dark-1: #7dd3fc;
+  --shiki-dark-2: #60a5fa;
+  --shiki-dark-3: #a78bfa;
+  --shiki-dark-4: #fb7185;
+  --shiki-dark-5: #c084fc;
+  --shiki-dark-6: #38bdf8;
+  --shiki-dark-7: #67e8f9;
+  --shiki-dark-8: #facc15;
+}
+
+/* Ensure code blocks render with proper Shiki colors */
+.prose code {
+  background: var(--code-bg);
+  color: var(--code-text);
+}
+
+.prose :where(pre) {
+  background: var(--code-bg);
+  color: var(--code-text);
+}
+
+.prose :where(pre code) {
+  background: transparent;
+  color: inherit;
+}
+
+/* Handle all nested code spans for better visibility */
+code span {
+  color: inherit;
+}
+
+/* Ensure code blocks have proper background */
+pre {
+  background: var(--code-bg) !important;
+  color: var(--code-text) !important;
+}
+
+pre code {
+  background: transparent !important;
+  color: var(--code-text) !important;
+}
+
+/* Allow span colors to override text color */
+pre span,
+pre code span {
+  color: inherit !important;
+}
+
+/* Override any inline styles that might hide text */
+.prose code,
+.prose pre,
+.prose pre code,
+code,
+pre {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+}
+
+/* Quarto/Pandoc Syntax Highlighting for Code Blocks */
+/* Applied to sourceCode class that wraps code blocks */
+.sourceCode {
+  background-color: var(--code-bg) !important;
+  color: var(--code-text) !important;
+}
+
+.sourceCode code,
+.sourceCode pre {
+  background-color: transparent !important;
+  color: var(--code-text) !important;
+}
+
+/* Override link colors inside code blocks */
+.sourceCode a,
+.sourceCode a span,
+pre a,
+pre span a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Ensure all spans in code get their color */
+.sourceCode span {
+  background-color: transparent !important;
+  font-style: inherit !important;
+}
+
+/* Make inline spans not inherit link color */
+code a,
+pre a,
+.sourceCode a {
+  color: var(--code-text) !important;
+  border: none !important;
+}
+
+/* Comments - co class */
+.co {
+  color: #6b7280 !important;
+  font-style: italic !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .co {
+  color: #94a3b8 !important;
+  font-style: italic !important;
+  background: transparent !important;
+}
+
+/* Keywords - kw class */
+.kw {
+  color: #dc2626 !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .kw {
+  color: #7dd3fc !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+/* Data types - dt class */
+.dt {
+  color: #7e22ce !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .dt {
+  color: #a78bfa !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Decimal numbers - dv class */
+.dv {
+  color: #ea580c !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .dv {
+  color: #93c5fd !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Binary numbers - bn class */
+.bn {
+  color: #d97706 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .bn {
+  color: #38bdf8 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Floats - fl class */
+.fl {
+  color: #b45309 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .fl {
+  color: #67e8f9 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Strings - st class */
+.st {
+  color: #059669 !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .st {
+  color: #bfdbfe !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+/* Functions - fu class */
+.fu {
+  color: #0284c7 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .fu {
+  color: #60a5fa !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Variables - va class */
+.va {
+  color: #c084fc !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .va {
+  color: #c4b5fd !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+/* Built-in functions - bu class */
+.bu {
+  color: #6d28d9 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .bu {
+  color: #93c5fd !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Operators - op class */
+.op {
+  color: #0891b2 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .op {
+  color: #67e8f9 !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+}
+
+/* Imports - im class */
+.im {
+  color: #dc2626 !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .im {
+  color: #7dd3fc !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+/* Control flow - cf class */
+.cf {
+  color: #ea580c !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .cf {
+  color: #38bdf8 !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+/* String parts - ss (string start), sc (string content/interpolation) classes */
+.ss,
+.sc {
+  color: #059669 !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .ss,
+html[data-theme='dark'] .sc {
+  color: #bfdbfe !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+/* Character escapes - ch class */
+.ch {
+  color: #059669 !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .ch {
+  color: #bfdbfe !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+pre span {
+  color: inherit;
+  background-color: transparent;
+}
+
+/* Ensure code-copy-outer-scaffold doesn't break highlighting */
+.code-copy-outer-scaffold {
+  display: contents;
+}
+
+/* Force syntax highlighting on all code element spans */
+pre span[class],
+code span[class],
+.sourceCode span[class] {
+  background-color: transparent;
+}
+
+/* Ensure nested structure doesn't break highlighting */
+pre span[class] span[class],
+code span[class] span[class] {
+  background-color: transparent;
+}
+
+/* Keywords */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal {
+  color: #dc2626 !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme='dark'] .hljs-keyword,
+html[data-theme='dark'] .hljs-selector-tag,
+html[data-theme='dark'] .hljs-literal {
+  color: #ff4444 !important;
+  font-weight: 700 !important;
+}
+
+/* Strings */
+.hljs-string,
+.hljs-title.class_,
+.hljs-attr {
+  color: #059669 !important;
+  font-weight: 500 !important;
+}
+
+html[data-theme='dark'] .hljs-string,
+html[data-theme='dark'] .hljs-title.class_,
+html[data-theme='dark'] .hljs-attr {
+  color: #86efac !important;
+  font-weight: 500 !important;
+}
+
+/* Numbers */
+.hljs-number {
+  color: #ea580c !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme='dark'] .hljs-number {
+  color: #fb923c !important;
+  font-weight: 600 !important;
+}
+
+/* Functions */
+.hljs-title.function_,
+.hljs-function {
+  color: #0284c7 !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme='dark'] .hljs-title.function_,
+html[data-theme='dark'] .hljs-function {
+  color: #38bdf8 !important;
+  font-weight: 600 !important;
+}
+
+/* Comments */
+.hljs-comment {
+  color: #6b7280 !important;
+  font-style: italic !important;
+}
+
+html[data-theme='dark'] .hljs-comment {
+  color: #d1d5db !important;
+  font-style: italic !important;
+}
+
+/* Built-in functions */
+.hljs-built_in {
+  color: #6d28d9 !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme='dark'] .hljs-built_in {
+  color: #d8b4fe !important;
+  font-weight: 600 !important;
+}
+
+/* Operators */
+.hljs-operator {
+  color: #0891b2 !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme='dark'] .hljs-operator {
+  color: #06b6d4 !important;
+  font-weight: 600 !important;
+}

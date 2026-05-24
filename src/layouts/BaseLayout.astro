@@ -1,0 +1,109 @@
+---
+import { menus, socialMedias } from "../data/params";
+import "../style/index.css";
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const currentYear = new Date().getFullYear();
+const meta = {
+  title: "Simon Bertrand - Ingénieur de recherche en IA - Portfolio",
+  description:
+    "Portfolio de Simon Bertrand, un ingénieur français en images, signaux et science des données",
+  keywords:
+    "data science, AI, development, machine learning, computer vision, signals, images, processing, telecom physique strasbourg, science des données, IA, développement, apprentissage automatique, vision par ordinateur, signaux, traitement",
+};
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{meta.title}</title>
+    <meta name="title" content="Simon Bertrand Portfolio - Ingénieur de recherche en IA" />
+    <meta name="description" content={meta.description} />
+    <meta name="keywords" content={meta.keywords} />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="French" />
+    <meta name="revisit-after" content="5 days" />
+    <meta name="author" content="Simon Bertrand" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
+    <meta name="msapplication-TileColor" content="#f1f1f1" />
+    <meta name="theme-color" content="#ffffff" />
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-P4CBYH4019"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-P4CBYH4019");
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <div class="layout">
+        <aside class="profile-shell">
+          <div class="profile-card">
+            <div class="w-full">
+              <img
+                src="/avatar.jpg"
+                alt="Simon Bertrand"
+                title="Simon Bertrand Photo"
+                class="avatar"
+              />
+              <h1 class="title">Simon Bertrand</h1>
+              <h5 class="subtitle">Doctorant en deep learning</h5>
+              <div class="social-links">
+                {
+                  socialMedias.map((item) => (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      title={`${item.name} Simon Bertrand`}
+                      set:html={item.icon}
+                    />
+                  ))
+                }
+              </div>
+              <nav class="site-nav">
+                <div class="site-nav-list">
+                  {
+                    menus.map((item) => {
+                      const itemPath = item.href.replace(/\/$/, "") || "/";
+                      const isActive =
+                        itemPath === "/blog"
+                          ? currentPath === "/blog" || currentPath.startsWith("/blog/")
+                          : currentPath === itemPath;
+
+                      return (
+                        <a
+                          class={isActive ? "menu-item-active" : "menu-item"}
+                          href={item.href}
+                        >
+                          <span class="text-left" set:html={item.icon} />
+                          <span class="mx-4 text-sm font-normal">{item.name}</span>
+                        </a>
+                      );
+                    })
+                  }
+                </div>
+              </nav>
+            </div>
+          </div>
+        </aside>
+        <main class="content-shell">
+          <section class="page">
+            <slot />
+          </section>
+        </main>
+      </div>
+      <div class="footer-shell">
+        <footer>© {currentYear} Simon Bertrand. Tous droits réservés.</footer>
+      </div>
+    </div>
+  </body>
+</html>

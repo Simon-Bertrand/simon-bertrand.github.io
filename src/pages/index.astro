@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { infosStats } from "../data/params";
+
+const focusAreas = [
+  "Computer Vision",
+  "Deep Learning Research",
+  "Software Engineering",
+  "Robust AI Systems",
+];
+
+const technicalAreas = [
+  ["Programmation", "Rust, Python, C#, C++, C, TypeScript, JavaScript"],
+  [
+    "Intelligence artificielle",
+    "Deep Learning, Vision par ordinateur, Traitement du signal et des images, Statistiques",
+  ],
+  [
+    "Outils Data Science",
+    "PyTorch, TensorFlow, JAX, HF, Scipy, Scikit-Learn, Pandas, Polars, Statsmodels",
+  ],
+  ["Ingénierie logicielle", "Git, Docker, CI/CD, Tests, Bash, SSH"],
+  ["Développement Web", "API REST, FastAPI, Next.js, React, HTML, CSS, Tailwind CSS"],
+  ["Bases de données", "PostgreSQL, SQL, NoSQL, Redis"],
+  [
+    "Systèmes réseaux",
+    "Linux, TCP/IP, UDP, DHCP, DNS, NAT, VPN, SSL/TLS, Reverse Proxy, HTTP, WebSocket",
+  ],
+  ["Sécurité, Rétro-ingénierie", "Chiffrement, Analyse statique, Analyse dynamique, Décompilation"],
+  ["Électronique embarquée", "ESP32, Arduino, Raspberry Pi, EasyEDA, Fusion 360"],
+];
+---
+
+<BaseLayout>
+  <div class="profile-hero">
+    <h2 class="text-3xl font-extrabold sm:text-4xl text-white">
+      <span class="block">Simon Bertrand</span>
+      <span class="color">Doctorant en deep learning</span>
+    </h2>
+
+    <p class="hero-summary">
+      Ingénieur-doctorant spécialisé en vision par ordinateur, recalage
+      multimodal et systèmes IA robustes, avec une expérience croisée en
+      recherche appliquée, industrie et ingénierie logicielle.
+    </p>
+
+    <div class="focus-tags">
+      {focusAreas.map((area) => <span>{area}</span>)}
+    </div>
+
+    <div class="hero-actions">
+      <a
+        class="primary-action"
+        href="https://www.linkedin.com/in/simonbertrand-engineering/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Me contacter
+      </a>
+      <a
+        class="secondary-action"
+        href="https://github.com/Simon-Bertrand"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Voir GitHub
+      </a>
+      <a
+        class="secondary-action"
+        href="/storage/Article1-These.pdf"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Publication
+      </a>
+    </div>
+
+    <section>
+      <div class="hero-stats">
+        {
+          infosStats.map((item) => (
+            <div>
+              <h5 class="text-5xl font-bold text-white">
+                <span class="inline text-white">{item.value}</span>
+                {item.name !== "Articles" && <span class="color">+</span>}
+              </h5>
+              <p class="text-xs font-medium tracking-wide text-indigo-100 uppercase">
+                {item.name}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+
+  <div class="max-w-screen-xl p-3 mx-auto section-block">
+    <div class="section-heading">
+      <p>Stack technique</p>
+      <h2>Domaines techniques</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 text-center items-center gap-8">
+      {
+        technicalAreas.map(([title, description]) => (
+          <div class="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
+            <div class="w-full">
+              <p class="mb-2 text-md lg:text-lg font-medium text-white">{title}</p>
+              <p class="text-xs text-gray-400">{description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
