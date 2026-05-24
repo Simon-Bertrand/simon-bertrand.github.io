@@ -1,0 +1,72 @@
+---
+import SiteFooter from '@/components/SiteFooter.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import { site } from '@/lib/site';
+import '@/styles/global.css';
+import '@/styles/syntax.css';
+
+const {
+  title = site.title,
+  description = site.description,
+  canonical,
+  image,
+  type = 'website',
+} = Astro.props as {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article';
+};
+
+const pageTitle = title === site.title ? title : `${title} · ${site.title}`;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).toString();
+const imageUrl = new URL(image ?? site.avatar, site.url).toString();
+---
+
+<!doctype html>
+<html lang={site.language} data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#186d67" />
+    <slot name="head" />
+    <script is:inline>
+      const storageKey = 'persoblog-theme';
+      const preferredTheme = localStorage.getItem(storageKey);
+      const theme = preferredTheme ?? 'dark';
+      document.documentElement.dataset.theme = theme;
+    </script>
+  </head>
+  <body class="antialiased">
+    <a class="skip-link" href="#content">Skip to content</a>
+    <SiteHeader />
+    <main id="content">
+      <slot />
+    </main>
+    <SiteFooter />
+    <script is:inline>
+      const toggle = document.querySelector('[data-theme-toggle]');
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const root = document.documentElement;
+          const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          root.dataset.theme = nextTheme;
+          localStorage.setItem('persoblog-theme', nextTheme);
+        });
+      }
+
+    </script>
+  </body>
+</html>

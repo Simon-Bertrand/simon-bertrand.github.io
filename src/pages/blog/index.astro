@@ -1,0 +1,43 @@
+---
+import ArticleCard from '@/components/ArticleCard.astro';
+import ListingLayout from '@/layouts/ListingLayout.astro';
+import { getPublishedNotes, getPublishedPosts, sortEntriesByDateDesc } from '@/lib/content';
+import { site, withBase } from '@/lib/site';
+
+const [posts, notes] = await Promise.all([getPublishedPosts(), getPublishedNotes()]);
+const entries = sortEntriesByDateDesc([...posts, ...notes]);
+const featured = entries.filter((entry) => entry.data.featured).slice(0, 3);
+const latest = entries.slice(0, 6);
+---
+
+<ListingLayout title={site.title} description={site.description}>
+  <section class="intro-band grid gap-8 overflow-hidden rounded-lg border border-[color:var(--border)] bg-[color:var(--bg-elevated)] p-6 sm:p-8 lg:grid-cols-[minmax(0,1.25fr)_20rem] lg:p-10">
+    <div class="flex min-w-0 flex-col justify-center">
+      <div class="text-xs font-semibold uppercase text-[color:var(--accent)]">Blog post about technologies</div>
+      <h2 class="mt-4 max-w-3xl text-3xl font-semibold text-[color:var(--text)] sm:text-5xl">Simon Bertrand</h2>
+      <p class="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--text-muted)]">
+        I write about development, mainly focusing on low-level performance, scientific ideas and stories to share the discoveries I make.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href={withBase('/posts/')} class="button-primary">Read articles</a>
+        <a href="https://simon-bertrand.github.io/" class="button-secondary">About me</a>
+      </div>
+    </div>
+
+    <div class="profile-panel">
+      <img src={site.avatar} alt="Portrait of Simon Bertrand" class="h-full w-full object-cover" loading="eager" />
+    </div>
+  </section>
+
+
+
+  <section class="mt-12">
+    <div class="flex items-end justify-between gap-4">
+      <h2 class="text-2xl font-semibold tracking-tight text-[color:var(--text)]">Latest writing</h2>
+      <a href={withBase('/posts/')} class="text-sm text-[color:var(--text-muted)] hover:text-[color:var(--text)]">All posts</a>
+    </div>
+    <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {latest.map((entry) => <ArticleCard entry={entry} />)}
+    </div>
+  </section>
+</ListingLayout>

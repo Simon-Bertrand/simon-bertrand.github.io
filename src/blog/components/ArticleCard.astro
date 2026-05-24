@@ -1,0 +1,28 @@
+---
+import { formatDate } from '@/lib/content';
+import { withBase } from '@/lib/site';
+import TagPill from './TagPill.astro';
+
+const { entry } = Astro.props as { entry: any };
+---
+
+<article class="article-card flex h-full flex-col p-5">
+  <div class="mb-4 flex items-center justify-between gap-3 text-sm text-[color:var(--text-muted)]">
+    <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
+    <span class="rounded-md bg-[color:var(--bg-muted)] px-2 py-1 text-xs uppercase">{entry.collection === 'posts' ? 'Article' : 'Note'}</span>
+  </div>
+
+  <h3 class="text-lg font-semibold tracking-tight text-[color:var(--text)]">
+    <a href={withBase(entry.collection === 'posts' ? `/posts/${entry.slug}/` : `/notes/${entry.slug}/`)} class="hover:text-[color:var(--accent)]">
+      {entry.data.title}
+    </a>
+  </h3>
+
+  <p class="mt-3 flex-1 text-sm leading-7 text-[color:var(--text-muted)]">{entry.data.description}</p>
+
+  {entry.data.tags.length > 0 && (
+    <div class="mt-4 flex flex-wrap gap-2">
+      {entry.data.tags.slice(0, 4).map((tag: string) => <TagPill tag={tag} />)}
+    </div>
+  )}
+</article>

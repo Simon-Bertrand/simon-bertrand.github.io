@@ -1,0 +1,38 @@
+---
+import { navItems, site } from '@/lib/site';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="sticky top-0 z-40 border-b border-[color:var(--border)] bg-[color:var(--bg)]/92 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--bg)]/84">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <a href="/" class="brand-lockup">
+      <img src={site.avatar} alt="" class="h-10 w-10 rounded-md object-cover" loading="eager" />
+      <span>
+        <span class="block text-base font-semibold text-[color:var(--text)]">Simon Bertrand</span>
+        <span class="hidden text-xs text-[color:var(--text-muted)] sm:block">About</span>
+      </span>
+    </a>
+
+    <div class="flex items-center gap-2">
+      <nav aria-label="Primary" class="hidden items-center gap-1 lg:flex">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="rounded-md px-3 py-2 text-sm text-[color:var(--text-muted)] transition hover:bg-[color:var(--bg-muted)] hover:text-[color:var(--text)]"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <ThemeToggle />
+    </div>
+  </div>
+  <nav aria-label="Primary mobile" class="scrollbar-none mx-auto flex max-w-6xl gap-1 overflow-x-auto px-4 pb-3 sm:px-6 lg:hidden">
+    {navItems.map((item) => (
+      <a href={item.href} class="shrink-0 rounded-md px-3 py-1.5 text-sm text-[color:var(--text-muted)] hover:bg-[color:var(--bg-muted)] hover:text-[color:var(--text)]">
+        {item.label}
+      </a>
+    ))}
+  </nav>
+</header>

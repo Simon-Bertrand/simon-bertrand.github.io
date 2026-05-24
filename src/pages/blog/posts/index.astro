@@ -1,0 +1,13 @@
+---
+import ArticleCard from '@/components/ArticleCard.astro';
+import ListingLayout from '@/layouts/ListingLayout.astro';
+import { getPublishedPosts } from '@/lib/content';
+
+const posts = await getPublishedPosts();
+---
+
+<ListingLayout title="Posts" description="Long-form technical articles generated from notebooks and curated for professional engineering readers.">
+  <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    {posts.map((entry) => <ArticleCard entry={entry} />)}
+  </div>
+</ListingLayout>

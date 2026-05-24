@@ -8,9 +8,17 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.astro
+.tmp
 dist
 dist-ssr
 *.local
+*.Zone.Identifier
+**/*.Zone.Identifier
+*:Zone.Identifier
+**/*:Zone.Identifier
+public/blog/generated/search-index.json
+public/blog/generated/notebooks
 
 # Editor directories and files
 .vscode/*

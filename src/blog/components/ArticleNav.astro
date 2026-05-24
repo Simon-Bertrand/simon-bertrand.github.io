@@ -1,0 +1,24 @@
+---
+import { withBase } from '@/lib/site';
+
+const { previousEntry, nextEntry } = Astro.props as {
+  previousEntry?: { slug: string; data: { title: string } };
+  nextEntry?: { slug: string; data: { title: string } };
+};
+---
+
+<nav class="mt-12 grid gap-4 border-t border-[color:var(--border)] pt-6 sm:grid-cols-2" aria-label="Article navigation">
+  {previousEntry ? (
+    <a href={withBase(`/posts/${previousEntry.slug}/`)} class="surface rounded-lg p-4 text-left transition hover:-translate-y-0.5">
+      <div class="text-xs uppercase tracking-[0.2em] text-[color:var(--text-muted)]">Previous</div>
+      <div class="mt-2 font-medium text-[color:var(--text)]">{previousEntry.data.title}</div>
+    </a>
+  ) : <div />}
+
+  {nextEntry ? (
+    <a href={withBase(`/posts/${nextEntry.slug}/`)} class="surface rounded-lg p-4 text-left transition hover:-translate-y-0.5 sm:text-right">
+      <div class="text-xs uppercase tracking-[0.2em] text-[color:var(--text-muted)]">Next</div>
+      <div class="mt-2 font-medium text-[color:var(--text)]">{nextEntry.data.title}</div>
+    </a>
+  ) : <div />}
+</nav>
