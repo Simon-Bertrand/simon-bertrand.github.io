@@ -42,6 +42,9 @@ jobs:
         # 'npm ci' is generally preferred over 'npm install' for CI/CD environments 
         # as it ensures a clean install from the lockfile.
 
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
       - name: Build
         run: npm run build
 
