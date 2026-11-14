@@ -211,7 +211,7 @@ export const experienceItems: {
     title: "Docteur-ingénieur | Data Scientist",
     company: "DGA, Bordeaux",
     description:
-      "Conception de système d'intelligence artificielle pour la défense.",
+      "Conception de systèmes d'intelligence artificielle pour la défense.",
     date: "Octobre 2026 - Aujourd'hui",
     src: "DGA.png",
   },
@@ -219,7 +219,7 @@ export const experienceItems: {
     title: "Doctorant-ingénieur | Recalage robuste d'images multimodales",
     company: "CEA, Bordeaux",
     description:
-      "Navigation de drones assistée par terrain, base de données observation de la Terre, réseaux de neurones pour recalage SAR-optique, supercalculateur SLURM sur GPU A100 & H100",
+      "Recherche sur la navigation de drones assistée par le terrain : bases de données d'observation de la Terre et recalage SAR-optique par réseaux de neurones. Calcul sur GPU A100 et H100 avec SLURM.",
     date: "Octobre 2023 - Aujourd'hui",
     src: "CEA.png",
   },
@@ -227,7 +227,7 @@ export const experienceItems: {
     title: "Doctorant-ingénieur | Chargé d'enseignement vacataire",
     company: "ENSEIRB-MATMECA, Bordeaux",
     description:
-      "Cours de Programmation C, Programmation Python, Deep Learning, expert IA Hackathon, plus de 100h d'enseignement",
+      "Plus de 100 heures d'enseignement en programmation C, Python et apprentissage profond. Accompagnement de hackathons en tant qu'expert en IA.",
     date: "Octobre 2023 - Octobre 2026",
     src: "U-Bordeaux.png",
   },
@@ -235,31 +235,31 @@ export const experienceItems: {
     title: "Militaire du rang | Réserviste opérationnel",
     company: "Armée de l'Air et de l'Espace, Bordeaux",
     description:
-      "Réserviste R01 de la Garde Nationale spécialisé en protection et défense",
+      "Réserviste R01 de la Garde nationale, spécialisé en protection et défense.",
     date: "Juin 2017 - Aujourd'hui",
     src: "ArmeeAirEspace.svg",
     logoVariant: "contrast",
   },
   {
-    title: "Ingénieur-Stagiaire (Thales)",
+    title: "Ingénieur stagiaire | Vision par ordinateur et IA",
     company: "Thales Netherlands, Hengelo, Pays-Bas",
     description:
-      "Ajout de fonctionnalités de vision par ordinateur et d'IA pour la caméra GateKeeper",
+      "Développement de fonctionnalités de vision par ordinateur et d'intelligence artificielle pour la caméra GateKeeper.",
     date: "2023 (6 mois)",
     src: "Thales.png",
   },
   {
-    title: "Ingénieur-Stagiaire (Groupama)",
+    title: "Ingénieur stagiaire | Développement web",
     company: "Groupama Grand Est, Strasbourg",
-    description: "Développement web C# avec deux applications livrées en production",
+    description: "Développement de deux applications web en C#, livrées en production.",
     date: "2022 (3 mois)",
     src: "Groupama.png",
   },
   {
-    title: "Ingénieur-Stagiaire (iCUBE)",
-    company: "iCUBE Strasbourg",
+    title: "Ingénieur stagiaire | Analyse de données",
+    company: "ICube, Strasbourg",
     description:
-      "Librairie open-source Python pour le minage de données et l'analyse de clusters non-supervisés",
+      "Développement d'une bibliothèque Python open source pour la fouille de données et l'analyse de groupes issus d'un apprentissage non supervisé.",
     date: "2021 (2 mois)",
     src: "iCube.png",
   },
