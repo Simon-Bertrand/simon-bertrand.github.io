@@ -179,6 +179,7 @@ export const educationItems = [
     date: "2020-2023",
     option: "Images, signaux et science des données",
     src: "TelecomPhysiqueStrasbourg.png",
+    logoVariant: "contrast" as const,
   },
   {
     title: "Master Recherche IRIV",
@@ -186,6 +187,7 @@ export const educationItems = [
     date: "2021-2023",
     option: "Images et données",
     src: "MasterIRIV.png",
+    logoVariant: "contrast" as const,
   },
   {
     title: "Classes préparatoires aux grandes écoles",
@@ -193,6 +195,7 @@ export const educationItems = [
     date: "2017-2020",
     option: "MPSI-MP",
     src: "SainteMarieGrandLeBrun.png",
+    logoVariant: "light" as const,
   },
 ];
 
@@ -202,6 +205,7 @@ export const experienceItems: {
   description: string;
   date: string;
   src?: string;
+  logoVariant?: "contrast";
 }[] = [
   {
     title: "Docteur-ingénieur | Data Scientist",
@@ -209,6 +213,7 @@ export const experienceItems: {
     description:
       "Conception de système d'intelligence artificielle pour la défense.",
     date: "Octobre 2026 - Aujourd'hui",
+    src: "DGA.png",
   },
   {
     title: "Doctorant-ingénieur | Recalage robuste d'images multimodales",
@@ -232,6 +237,8 @@ export const experienceItems: {
     description:
       "Réserviste R01 de la Garde Nationale spécialisé en protection et défense",
     date: "Juin 2017 - Aujourd'hui",
+    src: "ArmeeAirEspace.svg",
+    logoVariant: "contrast",
   },
   {
     title: "Ingénieur-Stagiaire (Thales)",

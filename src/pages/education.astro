@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { educationItems, thesis } from "../data/params";
+import InstitutionLogo from "../components/InstitutionLogo.astro";
 ---
 
 <BaseLayout title="Formation">
@@ -10,7 +11,7 @@ import { educationItems, thesis } from "../data/params";
       <li class="cv-record">
         <div class="cv-record-meta">
           <p>{item.date}</p>
-          <img src={`/logos/${item.src}`} alt="" loading="lazy" />
+          <InstitutionLogo src={item.src} alt={`Logo ${item.description}`} variant={item.logoVariant} />
         </div>
         <div>
           <h2>{item.title}</h2>

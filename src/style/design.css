@@ -1,33 +1,40 @@
 :root {
   color-scheme: light;
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --bg: #fafaf8;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --bg: #f7f8fa;
   --bg-elevated: #ffffff;
-  --bg-muted: #f0f1ef;
-  --text: #242a30;
-  --text-muted: #5a636e;
-  --border: #d9dddf;
-  --accent: #255a80;
-  --accent-strong: #143e5c;
-  --code-bg: #f0f1ef;
-  --code-text: #242a30;
+  --bg-muted: #edf1f6;
+  --text: #192531;
+  --text-muted: #526171;
+  --border: #d4dce5;
+  --accent: #1d4ed8;
+  --accent-strong: #153eab;
+  --accent-soft: #eaf0ff;
+  --action-bg: #1d4ed8;
+  --action-text: #ffffff;
+  --title-size: clamp(2.25rem, 4vw, 3.5rem);
+  --code-bg: #edf1f6;
+  --code-text: #192531;
   --shadow: none;
-  --site-width: 1120px;
-  --reading-width: 72ch;
+  --site-width: 1440px;
+  --content-width: 1200px;
+  --reading-width: 78ch;
 }
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #11161c;
-  --bg-elevated: #171e26;
-  --bg-muted: #202a35;
-  --text: #e4e9ef;
-  --text-muted: #a4afbc;
-  --border: #323e4b;
-  --accent: #9bbdd7;
-  --accent-strong: #d7e7f2;
-  --code-bg: #171e26;
-  --code-text: #e4e9ef;
+  --bg: #111923;
+  --bg-elevated: #172330;
+  --bg-muted: #1e2d3c;
+  --text: #edf2f8;
+  --text-muted: #a6b6c7;
+  --border: #304358;
+  --accent: #91baff;
+  --accent-strong: #cfe0ff;
+  --accent-soft: #1c3150;
+  --code-bg: #172330;
+  --code-text: #edf2f8;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -54,17 +61,17 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 ::selection { background: var(--border); color: var(--text); }
 [hidden] { display: none !important; }
 .site-width { width: min(calc(100% - 48px), var(--site-width)); margin-inline: auto; }
-.site-header { border-bottom: 1px solid var(--border); background: var(--bg); }
+.site-header { border-top: 3px solid var(--accent); border-bottom: 1px solid var(--border); background: var(--bg); }
 .site-masthead { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 26px 18px; }
 .site-identity { display: inline-flex; align-items: center; gap: 14px; color: var(--text); text-decoration: none; }
 .site-identity:hover { color: var(--text); }
 .site-identity img { flex-shrink: 0; width: 48px; height: 48px; border-radius: 4px; object-fit: cover; }
-.site-name { display: block; font-size: 1.15rem; line-height: 1.4; font-weight: 600; }
+.site-name { display: block; font-size: 1.2rem; line-height: 1.4; font-weight: 650; letter-spacing: -0.025em; }
 .site-qualification { display: block; margin-top: 3px; font-size: 0.82rem; line-height: 1.5; color: var(--text-muted); }
 .site-navigation { display: flex; flex-wrap: wrap; gap: 4px 26px; }
 .site-navigation a { display: inline-block; padding: 9px 0 12px; border-bottom: 2px solid transparent; color: var(--text-muted); font-size: 0.9rem; text-decoration: none; }
 .site-navigation a:hover, .site-navigation a[aria-current="page"] { color: var(--text); }
-.site-navigation a[aria-current="page"] { border-color: var(--accent); }
+.site-navigation a[aria-current="page"] { border-color: var(--accent); color: var(--accent); }
 .theme-toggle { display: inline-flex; flex-shrink: 0; align-items: center; gap: 8px; min-height: 40px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px; background: transparent; color: var(--text-muted); font-size: 0.8rem; cursor: pointer; }
 .theme-toggle:hover { border-color: var(--accent); color: var(--text); }
 .theme-toggle span:first-child { font-size: 1.1rem; }
@@ -74,6 +81,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .site-footer a { color: var(--text-muted); }
 .skip-link { position: absolute; left: 16px; top: 8px; z-index: 50; padding: 8px 16px; transform: translateY(-200%); border: 1px solid var(--border); background: var(--bg-elevated); }
 .skip-link:focus { transform: translateY(0); }
+.section-kicker { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; color: var(--accent); font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.6; }
+.section-kicker::before { content: ""; width: 28px; height: 2px; flex-shrink: 0; background: var(--accent); }
 @media (max-width: 640px) {
   .site-width { width: calc(100% - 32px); }
   .site-masthead { gap: 12px; padding-block: 20px 12px; }

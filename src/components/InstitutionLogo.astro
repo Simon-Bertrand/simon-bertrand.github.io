@@ -1,0 +1,14 @@
+---
+const { src, alt, variant = 'default' } = Astro.props as {
+  src: string;
+  alt: string;
+  variant?: 'default' | 'contrast' | 'light';
+};
+---
+
+<img
+  class:list={['institution-logo', `institution-logo--${variant}`]}
+  src={`/logos/${src}`}
+  alt={alt}
+  loading="lazy"
+/>

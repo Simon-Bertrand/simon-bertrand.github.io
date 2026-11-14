@@ -28,7 +28,8 @@ const technicalAreas = [
 <BaseLayout>
   <div class="cv-home">
     <header class="cv-intro">
-      <p class="cv-eyebrow">Recherche appliquée & ingénierie</p>
+      <div class="cv-intro-main">
+      <p class="section-kicker">Recherche appliquée & ingénierie</p>
       <h1>{profile.qualification}</h1>
       <p class="cv-specialties">{profile.specialties}</p>
       <p class="cv-summary">{profile.summary}</p>
@@ -37,26 +38,26 @@ const technicalAreas = [
         <a href={profile.scholar} target="_blank" rel="noreferrer">Google Scholar</a>
         <a href="https://github.com/Simon-Bertrand" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
+      </div>
+      <nav class="page-index" aria-label="Sommaire du CV">
+        <p>Explorer mon parcours</p>
+        <a href="#publications-title"><span aria-hidden="true">01</span> Publications <span aria-hidden="true">↓</span></a>
+        <a href="#expertise-title"><span aria-hidden="true">02</span> Domaines de travail <span aria-hidden="true">↓</span></a>
+        <a href="#teaching-title"><span aria-hidden="true">03</span> Enseignement <span aria-hidden="true">↓</span></a>
+      </nav>
     </header>
 
-    <section class="cv-section" aria-labelledby="research-title">
-      <h2 id="research-title">Recherche</h2>
-      <p>
-        Mes travaux doctoraux au CEA et à l’Université de Bordeaux ont porté sur
-        le recalage d’images SAR et optiques pour la navigation de drones assistée
-        par le terrain. Ils associent apprentissage profond, données d’observation
-        de la Terre et calcul sur GPU.
-      </p>
-      <a href="https://github.com/Simon-Bertrand/MEOW" target="_blank" rel="noreferrer">MEOW : jeu de données et outils de recherche ↗</a>
-    </section>
 
     <section class="cv-section" aria-labelledby="publications-title">
       <h2 id="publications-title">Publications</h2>
+      <div class="cv-section-content">
       <PublicationList />
+      </div>
     </section>
 
     <section class="cv-section" aria-labelledby="expertise-title">
       <h2 id="expertise-title">Domaines de travail</h2>
+      <div class="cv-section-content">
       <dl class="cv-expertise">
         <div>
           <dt>Intelligence artificielle</dt>
@@ -72,10 +73,12 @@ const technicalAreas = [
         </div>
       </dl>
       <a href="/projects">Consulter les projets logiciels →</a>
+      </div>
     </section>
 
     <section class="cv-section" aria-labelledby="teaching-title">
       <h2 id="teaching-title">Enseignement & parcours</h2>
+      <div class="cv-section-content">
       <p>
         Plus de 100 heures d’enseignement à l’ENSEIRB-MATMECA en programmation C,
         Python et deep learning. Mon parcours comprend également des expériences
@@ -85,6 +88,7 @@ const technicalAreas = [
         <a href="/experiences">Expériences →</a>
         <a href="/education">Formation →</a>
         <a href="/blog/">Articles techniques →</a>
+      </div>
       </div>
     </section>
 
