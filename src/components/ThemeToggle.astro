@@ -1,0 +1,20 @@
+<button type="button" class="theme-toggle" data-theme-toggle aria-label="Activer le thème clair" aria-pressed="true">
+  <span aria-hidden="true">◐</span>
+  <span>Thème</span>
+</button>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  const updateLabel = () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    toggle?.setAttribute('aria-pressed', String(dark));
+    toggle?.setAttribute('aria-label', dark ? 'Activer le thème clair' : 'Activer le thème sombre');
+  };
+  updateLabel();
+  toggle?.addEventListener('click', () => {
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem('simon-bertrand-theme', theme); } catch {}
+    updateLabel();
+  });
+</script>

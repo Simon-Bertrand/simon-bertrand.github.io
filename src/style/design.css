@@ -1,0 +1,92 @@
+:root {
+  color-scheme: light;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --bg: #fafaf8;
+  --bg-elevated: #ffffff;
+  --bg-muted: #f0f1ef;
+  --text: #242a30;
+  --text-muted: #5a636e;
+  --border: #d9dddf;
+  --accent: #255a80;
+  --accent-strong: #143e5c;
+  --code-bg: #f0f1ef;
+  --code-text: #242a30;
+  --shadow: none;
+  --site-width: 1120px;
+  --reading-width: 72ch;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #11161c;
+  --bg-elevated: #171e26;
+  --bg-muted: #202a35;
+  --text: #e4e9ef;
+  --text-muted: #a4afbc;
+  --border: #323e4b;
+  --accent: #9bbdd7;
+  --accent-strong: #d7e7f2;
+  --code-bg: #171e26;
+  --code-text: #e4e9ef;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+button, input, select { font: inherit; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.22em; }
+a:hover { color: var(--accent-strong); }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+::selection { background: var(--border); color: var(--text); }
+[hidden] { display: none !important; }
+.site-width { width: min(calc(100% - 48px), var(--site-width)); margin-inline: auto; }
+.site-header { border-bottom: 1px solid var(--border); background: var(--bg); }
+.site-masthead { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 26px 18px; }
+.site-identity { display: inline-flex; align-items: center; gap: 14px; color: var(--text); text-decoration: none; }
+.site-identity:hover { color: var(--text); }
+.site-identity img { flex-shrink: 0; width: 48px; height: 48px; border-radius: 4px; object-fit: cover; }
+.site-name { display: block; font-size: 1.15rem; line-height: 1.4; font-weight: 600; }
+.site-qualification { display: block; margin-top: 3px; font-size: 0.82rem; line-height: 1.5; color: var(--text-muted); }
+.site-navigation { display: flex; flex-wrap: wrap; gap: 4px 26px; }
+.site-navigation a { display: inline-block; padding: 9px 0 12px; border-bottom: 2px solid transparent; color: var(--text-muted); font-size: 0.9rem; text-decoration: none; }
+.site-navigation a:hover, .site-navigation a[aria-current="page"] { color: var(--text); }
+.site-navigation a[aria-current="page"] { border-color: var(--accent); }
+.theme-toggle { display: inline-flex; flex-shrink: 0; align-items: center; gap: 8px; min-height: 40px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px; background: transparent; color: var(--text-muted); font-size: 0.8rem; cursor: pointer; }
+.theme-toggle:hover { border-color: var(--accent); color: var(--text); }
+.theme-toggle span:first-child { font-size: 1.1rem; }
+.site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; margin-top: 64px; padding-block: 24px 36px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.8rem; }
+.site-footer p { margin: 0; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.site-footer a { color: var(--text-muted); }
+.skip-link { position: absolute; left: 16px; top: 8px; z-index: 50; padding: 8px 16px; transform: translateY(-200%); border: 1px solid var(--border); background: var(--bg-elevated); }
+.skip-link:focus { transform: translateY(0); }
+@media (max-width: 640px) {
+  .site-width { width: calc(100% - 32px); }
+  .site-masthead { gap: 12px; padding-block: 20px 12px; }
+  .site-identity { gap: 10px; }
+  .site-identity img { width: 40px; height: 40px; }
+  .site-name { font-size: 1rem; }
+  .site-qualification { font-size: 0.74rem; max-width: 28ch; }
+  .theme-toggle { padding-inline: 8px; }
+  .theme-toggle span:last-child { display: none; }
+  .site-navigation { gap: 0 20px; }
+  .site-navigation a { font-size: 0.83rem; padding-block: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

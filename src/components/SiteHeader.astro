@@ -1,0 +1,31 @@
+---
+import { menus, profile } from '../data/params';
+import ThemeToggle from './ThemeToggle.astro';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isBlog = path === '/blog' || path.startsWith('/blog/');
+const isActive = (href: string) => {
+  const target = href.replace(/\/$/, '') || '/';
+  return target === '/blog' ? isBlog : path === target;
+};
+---
+
+<header class="site-header" lang="fr">
+  <div class="site-width">
+    <div class="site-masthead">
+      <a class="site-identity" href="/">
+        <img src={profile.avatar} alt="" width="48" height="48" />
+        <span>
+          <span class="site-name">{profile.name}</span>
+          <span class="site-qualification">{profile.qualification}</span>
+        </span>
+      </a>
+      <ThemeToggle />
+    </div>
+    <nav class="site-navigation" aria-label="Navigation principale">
+      {menus.map((item) => (
+        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.name}</a>
+      ))}
+    </nav>
+  </div>
+</header>

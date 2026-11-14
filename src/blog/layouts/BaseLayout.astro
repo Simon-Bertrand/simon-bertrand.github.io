@@ -2,6 +2,8 @@
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import { site } from '@/lib/site';
+import ThemeScript from '../../components/ThemeScript.astro';
+import '../../style/design.css';
 import '@/styles/global.css';
 import '@/styles/syntax.css';
 
@@ -40,33 +42,17 @@ const imageUrl = new URL(image ?? site.avatar, site.url).toString();
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#186d67" />
+    <meta name="theme-color" content="#11161c" />
     <slot name="head" />
-    <script is:inline>
-      const storageKey = 'persoblog-theme';
-      const preferredTheme = localStorage.getItem(storageKey);
-      const theme = preferredTheme ?? 'dark';
-      document.documentElement.dataset.theme = theme;
-    </script>
+    <ThemeScript />
   </head>
-  <body class="antialiased">
+  <body class="blog-site antialiased">
     <a class="skip-link" href="#content">Skip to content</a>
     <SiteHeader />
     <main id="content">
       <slot />
     </main>
     <SiteFooter />
-    <script is:inline>
-      const toggle = document.querySelector('[data-theme-toggle]');
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          const root = document.documentElement;
-          const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-          root.dataset.theme = nextTheme;
-          localStorage.setItem('persoblog-theme', nextTheme);
-        });
-      }
 
-    </script>
   </body>
 </html>

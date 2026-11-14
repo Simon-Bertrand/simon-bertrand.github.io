@@ -1,13 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { infosStats } from "../data/params";
-
-const focusAreas = [
-  "Computer Vision",
-  "Deep Learning Research",
-  "Software Engineering",
-  "Robust AI Systems",
-];
+import { profile } from "../data/params";
+import PublicationList from "../components/PublicationList.astro";
 
 const technicalAreas = [
   ["Programmation", "Rust, Python, C#, C++, C, TypeScript, JavaScript"],
@@ -32,85 +26,78 @@ const technicalAreas = [
 ---
 
 <BaseLayout>
-  <div class="profile-hero">
-    <h2 class="text-3xl font-extrabold sm:text-4xl text-white">
-      <span class="block">Simon Bertrand</span>
-      <span class="color">Doctorant en deep learning</span>
-    </h2>
+  <div class="cv-home">
+    <header class="cv-intro">
+      <p class="cv-eyebrow">Recherche appliquée & ingénierie</p>
+      <h1>{profile.qualification}</h1>
+      <p class="cv-specialties">{profile.specialties}</p>
+      <p class="cv-summary">{profile.summary}</p>
+      <nav class="cv-links" aria-label="Contact et profils scientifiques">
+        <a href="https://www.linkedin.com/in/simonbertrand-engineering/" target="_blank" rel="noreferrer">Me contacter</a>
+        <a href={profile.scholar} target="_blank" rel="noreferrer">Google Scholar</a>
+        <a href="https://github.com/Simon-Bertrand" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </header>
 
-    <p class="hero-summary">
-      Ingénieur-doctorant spécialisé en vision par ordinateur, recalage
-      multimodal et systèmes IA robustes, avec une expérience croisée en
-      recherche appliquée, industrie et ingénierie logicielle.
-    </p>
+    <section class="cv-section" aria-labelledby="research-title">
+      <h2 id="research-title">Recherche</h2>
+      <p>
+        Mes travaux doctoraux au CEA et à l’Université de Bordeaux ont porté sur
+        le recalage d’images SAR et optiques pour la navigation de drones assistée
+        par le terrain. Ils associent apprentissage profond, données d’observation
+        de la Terre et calcul sur GPU.
+      </p>
+      <a href="https://github.com/Simon-Bertrand/MEOW" target="_blank" rel="noreferrer">MEOW : jeu de données et outils de recherche ↗</a>
+    </section>
 
-    <div class="focus-tags">
-      {focusAreas.map((area) => <span>{area}</span>)}
-    </div>
+    <section class="cv-section" aria-labelledby="publications-title">
+      <h2 id="publications-title">Publications</h2>
+      <PublicationList />
+    </section>
 
-    <div class="hero-actions">
-      <a
-        class="primary-action"
-        href="https://www.linkedin.com/in/simonbertrand-engineering/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Me contacter
-      </a>
-      <a
-        class="secondary-action"
-        href="https://github.com/Simon-Bertrand"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Voir GitHub
-      </a>
-      <a
-        class="secondary-action"
-        href="/storage/Article1-These.pdf"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Publication
-      </a>
-    </div>
+    <section class="cv-section" aria-labelledby="expertise-title">
+      <h2 id="expertise-title">Domaines de travail</h2>
+      <dl class="cv-expertise">
+        <div>
+          <dt>Intelligence artificielle</dt>
+          <dd>Vision par ordinateur, apprentissage profond, recalage multimodal et IA générative.</dd>
+        </div>
+        <div>
+          <dt>Calcul scientifique & HPC</dt>
+          <dd>PyTorch, JAX, TensorFlow, calcul sur GPU A100 et H100, orchestration avec SLURM.</dd>
+        </div>
+        <div>
+          <dt>Ingénierie logicielle</dt>
+          <dd>Python, Rust, C et C++ ; outils scientifiques, tests, Docker et intégration continue.</dd>
+        </div>
+      </dl>
+      <a href="/projects">Consulter les projets logiciels →</a>
+    </section>
 
-    <section>
-      <div class="hero-stats">
-        {
-          infosStats.map((item) => (
-            <div>
-              <h5 class="text-5xl font-bold text-white">
-                <span class="inline text-white">{item.value}</span>
-                {item.name !== "Articles" && <span class="color">+</span>}
-              </h5>
-              <p class="text-xs font-medium tracking-wide text-indigo-100 uppercase">
-                {item.name}
-              </p>
-            </div>
-          ))
-        }
+    <section class="cv-section" aria-labelledby="teaching-title">
+      <h2 id="teaching-title">Enseignement & parcours</h2>
+      <p>
+        Plus de 100 heures d’enseignement à l’ENSEIRB-MATMECA en programmation C,
+        Python et deep learning. Mon parcours comprend également des expériences
+        en vision par ordinateur chez Thales et en analyse de données au laboratoire iCube.
+      </p>
+      <div class="cv-links">
+        <a href="/experiences">Expériences →</a>
+        <a href="/education">Formation →</a>
+        <a href="/blog/">Articles techniques →</a>
       </div>
     </section>
-  </div>
 
-  <div class="max-w-screen-xl p-3 mx-auto section-block">
-    <div class="section-heading">
-      <p>Stack technique</p>
-      <h2>Domaines techniques</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 text-center items-center gap-8">
-      {
-        technicalAreas.map(([title, description]) => (
-          <div class="p-4 overflow-hidden bg-color2 shadow-lg rounded-2xl">
-            <div class="w-full">
-              <p class="mb-2 text-md lg:text-lg font-medium text-white">{title}</p>
-              <p class="text-xs text-gray-400">{description}</p>
-            </div>
+    <details class="cv-section cv-skills">
+      <summary>Compétences techniques détaillées</summary>
+      <dl class="cv-expertise">
+        {technicalAreas.map(([title, description]) => (
+          <div>
+            <dt>{title}</dt>
+            <dd>{description}</dd>
           </div>
-        ))
-      }
-    </div>
+        ))}
+      </dl>
+    </details>
   </div>
 </BaseLayout>

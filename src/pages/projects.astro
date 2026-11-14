@@ -2,11 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout>
+<BaseLayout title="Projets">
   <div class="section-heading projects-heading">
     <p>GitHub</p>
     <h1>Projets</h1>
-    <span>Dépôts publics chargés depuis l'API GitHub</span>
+    <span>Bibliothèques, outils et expériences de recherche disponibles sur GitHub.</span>
   </div>
 
   <div class="project-state" data-projects-loading>
@@ -15,8 +15,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <div class="project-state project-state-error" data-projects-error hidden>
     <p data-projects-error-message>Impossible de charger les projets GitHub.</p>
-    <a href="https://api.github.com/users/Simon-Bertrand/repos" target="_blank" rel="noreferrer">
-      Ouvrir l'API GitHub
+    <a href="https://github.com/Simon-Bertrand" target="_blank" rel="noreferrer">
+      Voir les projets sur GitHub
     </a>
   </div>
 

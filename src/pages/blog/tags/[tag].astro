@@ -20,7 +20,7 @@ const entries = [...posts, ...notes].filter((entry) => entry.data.tags.includes(
 ---
 
 <ListingLayout title={`Tag: ${tag}`} description={`All published articles and notes tagged with ${tag}.`}>
-  <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+  <div class="writing-list">
     {entries.map((entry) => <ArticleCard entry={entry} />)}
   </div>
 </ListingLayout>

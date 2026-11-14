@@ -1,23 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import logoPdf from "../assets/logoPdf.png";
+import { profile } from "../data/params";
+import PublicationList from "../components/PublicationList.astro";
 ---
 
-<BaseLayout>
-  <h1 class="text-center p-5">Ressources</h1>
+<BaseLayout title="Ressources et publications">
+  <h1>Ressources</h1>
+  <section class="resource-publications" aria-labelledby="publications-title">
+    <h2 id="publications-title">Publications scientifiques</h2>
+    <PublicationList />
+    <a href={profile.scholar} target="_blank" rel="noreferrer">Profil Google Scholar ↗</a>
+  </section>
   <div class="accordion">
-    <details class="accordion__item">
-      <summary class="accordion__button">Publications</summary>
-      <div class="accordion__panel">
-        <a class="flex" target="_blank" href="/storage/Article1-These.pdf" title="Publication CEA">
-          <div class="pdf w-1/3" style={`background-image: url(${logoPdf.src})`}></div>
-          <p class="my-auto w-2/3">
-            Learning-Based SAR-Optical Registration for Navigation: Insights From a
-            Multiyear, Multiseason Continental-Scale Dataset - CEA
-          </p>
-        </a>
-      </div>
-    </details>
     <details class="accordion__item">
       <summary class="accordion__button">Rapports de travaux</summary>
       <div class="accordion__panel">

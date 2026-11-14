@@ -1,3 +1,88 @@
+export const profile = {
+  name: "Simon Bertrand",
+  avatar: "/avatar.jpg",
+  qualification: "Docteur-ingénieur en intelligence artificielle",
+  specialties: "IA générative · Vision par ordinateur · Calcul haute performance",
+  summary:
+    "Docteur-ingénieur en intelligence artificielle et data scientist à la DGA à Bordeaux, je conçois des systèmes d’IA pour la défense. Mes travaux doctoraux au CEA et à l’Université de Bordeaux ont porté sur le recalage robuste d’images SAR et optiques pour la navigation de drones.",
+  scholar: "https://scholar.google.fr/citations?user=4FK_9vAAAAAJ",
+};
+
+export const thesis = {
+  title: "Recalage d’images par réseaux de neurones pour la navigation hybridée",
+  year: 2026,
+  institution: "Université de Bordeaux",
+  defenseDate: "6 octobre 2026",
+  source: "https://theses.hal.science/tel-05802327/",
+};
+
+type Publication = {
+  title: string;
+  authors: string[];
+  year: number;
+  venue: string;
+  kind: "article" | "thesis";
+  pages?: string;
+  doi?: string;
+  hal?: string;
+  pdf?: string;
+  code?: string;
+  url?: string;
+  urlLabel?: string;
+  description?: string;
+};
+
+const fusionTitle = "Conformal Prediction for Uncertainty-Aware SAR-Based Terrain-Aided Navigation";
+
+// Références fournies par Simon Bertrand depuis son profil Google Scholar.
+// DOI et liens HAL déjà recoupés avec le catalogue IMS et le programme IEEE ICIP.
+export const publications: Publication[] = [
+  {
+    title: thesis.title,
+    authors: [profile.name],
+    year: thesis.year,
+    venue: thesis.institution,
+    kind: "thesis",
+    url: thesis.source,
+    urlLabel: "Thèse sur HAL · Université de Bordeaux",
+  },
+  {
+    title: "Rotation-Aware Dense Neural Network for Multi-Modal SAR-Optical Image Registration",
+    authors: ["Simon Bertrand", "Cornelia Vacar", "Lionel Bombrun"],
+    year: 2026,
+    venue: "2026 IEEE International Conference on Image Processing (ICIP)",
+    kind: "article",
+    pages: "1–6",
+    doi: "10.1109/ICIP61757.2026.11630256",
+    url: "https://ieeexplore.ieee.org/abstract/document/11630256",
+    urlLabel: "IEEE Xplore",
+    hal: "https://hal.science/hal-05724656",
+    description: "RoAD-Net : estimation conjointe de la translation et de la rotation pour le recalage SAR-optique.",
+  },
+  {
+    title: fusionTitle,
+    authors: ["Simon Bertrand", "Cornelia Vacar", "Lionel Bombrun"],
+    year: 2026,
+    venue: "2026 29th International Conference on Information Fusion (FUSION)",
+    kind: "article",
+    pages: "1–8",
+    url: "https://ieeexplore.ieee.org/abstract/document/11726608",
+    urlLabel: "IEEE Xplore",
+  },
+  {
+    title: "Learning-based SAR-Optical Registration for Navigation: Insights from a Multi-Year, Multi-Season Continental-Scale Dataset",
+    authors: ["Simon Bertrand", "Guillaume Bourmaud", "Cornelia Vacar", "Lionel Bombrun"],
+    year: 2025,
+    venue: "IEEE Transactions on Geoscience and Remote Sensing, vol. 63",
+    kind: "article",
+    doi: "10.1109/TGRS.2025.3624474",
+    hal: "https://hal.science/hal-05403251",
+    pdf: "/storage/Article1-These.pdf",
+    code: "https://github.com/Simon-Bertrand/SAROPTReg-Insights",
+    description: "Étude du recalage SAR-optique sur un jeu de données continental couvrant plusieurs années et saisons.",
+  },
+];
+
 export const menus = [
   {
     name: "À propos",
@@ -12,7 +97,7 @@ export const menus = [
       '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M8 17H6v-2h2v2m0-4H6v-2h2v2m0-4H6V7h2v2m10 8h-8v-2h8v2m0-4h-8v-2h8v2m0-4h-8V7h8v2Z"/></svg>',
   },
   {
-    name: "Éducation",
+    name: "Formation",
     href: "/education",
     icon:
       '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 3h20c1.05 0 2 .95 2 2v14c0 1.05-.95 2-2 2H2c-1.05 0-2-.95-2-2V5c0-1.05.95-2 2-2m12 3v1h8V6h-8m0 2v1h8V8h-8m0 2v1h7v-1h-7m-6 3.91C6 13.91 2 15 2 17v1h12v-1c0-2-4-3.09-6-3.09M8 6a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3Z"/></svg>',
@@ -72,7 +157,7 @@ export const infosStats = [
         ? "9"
         : (new Date().getFullYear() - 2017).toString(),
   },
-  { name: "Articles", value: "1" },
+  { name: "Articles", value: publications.filter((publication) => publication.kind === "article").length.toString() },
   {
     name: "Années de développement",
     value: (new Date().getFullYear() - 2012).toString(),
@@ -81,11 +166,11 @@ export const infosStats = [
 
 export const educationItems = [
   {
-    title: "[En cours] Diplôme de doctorat",
+    title: "Diplôme de doctorat",
     description:
       "École doctorale n°209 - Sciences physiques et de l'ingénieur - Univ. Bordeaux",
     date: "2023-2026",
-    option: "Automatique, productique, signal et image, ingénierie cognitique",
+    option: "Automatique, signal et image, vision par ordinateur",
     src: "U-Bordeaux.png",
   },
   {
@@ -119,7 +204,14 @@ export const experienceItems: {
   src?: string;
 }[] = [
   {
-    title: "Ingénieur-Doctorant | Recalage robuste d'images multimodales",
+    title: "Docteur-ingénieur | Data Scientist",
+    company: "DGA, Bordeaux",
+    description:
+      "Conception de système d'intelligence artificielle pour la défense.",
+    date: "Octobre 2026 - Aujourd'hui",
+  },
+  {
+    title: "Doctorant-ingénieur | Recalage robuste d'images multimodales",
     company: "CEA, Bordeaux",
     description:
       "Navigation de drones assistée par terrain, base de données observation de la Terre, réseaux de neurones pour recalage SAR-optique, supercalculateur SLURM sur GPU A100 & H100",
@@ -127,11 +219,11 @@ export const experienceItems: {
     src: "CEA.png",
   },
   {
-    title: "Ingénieur-Doctorant | Chargé d'enseignement vacataire",
+    title: "Doctorant-ingénieur | Chargé d'enseignement vacataire",
     company: "ENSEIRB-MATMECA, Bordeaux",
     description:
       "Cours de Programmation C, Programmation Python, Deep Learning, expert IA Hackathon, plus de 100h d'enseignement",
-    date: "Octobre 2023 - Aujourd'hui",
+    date: "Octobre 2023 - Octobre 2026",
     src: "U-Bordeaux.png",
   },
   {

@@ -1,0 +1,37 @@
+---
+import { publications } from "../data/params";
+---
+
+<ol class="cv-publications">
+  {publications.map((publication) => {
+    const doiUrl = publication.doi
+      ? `https://doi.org/${publication.doi}`
+      : undefined;
+    const titleUrl = publication.pdf ?? publication.url ?? doiUrl ?? publication.hal;
+    const externalUrl = publication.url ?? (!publication.pdf ? doiUrl : undefined);
+    const hasLinks = externalUrl || publication.hal || publication.pdf || publication.code;
+
+    return (
+    <li>
+      <article>
+        <p class="cv-publication-meta">
+          {publication.year} · {publication.kind === "thesis" ? "Thèse de doctorat · " : ""}{publication.venue}{publication.pages && `, pp. ${publication.pages}`}
+        </p>
+        <h3>
+          {titleUrl
+            ? <a href={titleUrl} target="_blank" rel="noreferrer">{publication.title}</a>
+            : publication.title}
+        </h3>
+        <p class="cv-authors">{publication.authors.join(", ")}</p>
+        {publication.description && <p>{publication.description}</p>}
+        {hasLinks && <div class="cv-links">
+          {publication.pdf && <a href={publication.pdf} target="_blank" rel="noreferrer">PDF ↗</a>}
+          {externalUrl && <a href={externalUrl} target="_blank" rel="noreferrer">{publication.urlLabel ?? "DOI"} ↗</a>}
+          {publication.hal && <a href={publication.hal} target="_blank" rel="noreferrer">HAL ↗</a>}
+          {publication.code && <a href={publication.code} target="_blank" rel="noreferrer">Code ↗</a>}
+        </div>}
+      </article>
+    </li>
+    );
+  })}
+</ol>

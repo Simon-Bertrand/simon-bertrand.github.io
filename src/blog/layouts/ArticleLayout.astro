@@ -49,20 +49,18 @@ const colabUrl = notebookSource
 ---
 
 <BaseLayout title={title} description={description} type="article">
-  <div class="mx-auto max-w-[92rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-    <div class="grid gap-10 lg:grid-cols-[minmax(0,16rem)_minmax(0,54rem)_minmax(0,16rem)] xl:grid-cols-[minmax(0,18rem)_minmax(0,60rem)_minmax(0,18rem)]">
-      <div class="hidden lg:block"></div>
-
+  <div class="article-layout site-width">
+    <div class="article-columns">
       <article class="min-w-0">
         <header class="mb-8 border-b border-[color:var(--border)] pb-8">
           <div class="flex flex-wrap items-center gap-3 text-sm text-[color:var(--text-muted)]">
             <time datetime={date.toISOString()}>{date.toLocaleDateString('en', { year: 'numeric', month: 'short', day: '2-digit' })}</time>
             {updated && <span>Updated {updated.toLocaleDateString('en', { year: 'numeric', month: 'short', day: '2-digit' })}</span>}
             {readingTime && <span>{readingTime}</span>}
-            <span class="rounded-md border border-[color:var(--border)] px-2 py-1 text-xs uppercase tracking-[0.2em]">{type}</span>
+            <span class="article-kind">{type}</span>
           </div>
 
-          <h1 class="mt-4 text-3xl font-semibold tracking-tight text-[color:var(--text)] sm:text-4xl">{title}</h1>
+          <h1 class="article-heading mt-4 text-3xl font-semibold text-[color:var(--text)] sm:text-4xl">{title}</h1>
           <p class="mt-4 max-w-3xl text-lg leading-8 text-[color:var(--text-muted)]">{description}</p>
 
           {tags.length > 0 && (

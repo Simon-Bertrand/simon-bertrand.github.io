@@ -1,0 +1,10 @@
+<script is:inline>
+  (() => {
+    let theme = 'dark';
+    try {
+      const stored = localStorage.getItem('simon-bertrand-theme') ?? localStorage.getItem('persoblog-theme');
+      if (stored === 'light' || stored === 'dark') theme = stored;
+    } catch {}
+    document.documentElement.dataset.theme = theme;
+  })();
+</script>

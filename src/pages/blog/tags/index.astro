@@ -15,7 +15,7 @@ for (const entry of [...posts, ...notes]) {
 const tags = [...tagMap.entries()].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]));
 ---
 
-<ListingLayout title="Tags" description="A lightweight tag index for navigating the technical knowledge base.">
+<ListingLayout title="Tags" description="Browse articles and notes by subject.">
   <div class="flex flex-wrap gap-3">
     {tags.map(([tag, count]) => (
       <a href={withBase(`/tags/${encodeURIComponent(tag)}/`)} class="surface inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-[color:var(--text)] hover:border-[color:var(--accent)]">

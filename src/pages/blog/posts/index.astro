@@ -6,8 +6,8 @@ import { getPublishedPosts } from '@/lib/content';
 const posts = await getPublishedPosts();
 ---
 
-<ListingLayout title="Posts" description="Long-form technical articles generated from notebooks and curated for professional engineering readers.">
-  <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+<ListingLayout title="Posts" description="Technical articles on scientific computing, software and machine learning.">
+  <div class="writing-list">
     {posts.map((entry) => <ArticleCard entry={entry} />)}
   </div>
 </ListingLayout>
