@@ -54,11 +54,11 @@
 .cv-record p + p { margin-top: 10px; }
 .cv-record-meta { font-size: 0.85rem; }
 .page .cv-record-meta > p { color: var(--accent); font-family: var(--font-mono); font-size: 0.76rem; }
-.institution-logo { display: block; width: 128px; max-width: 100%; height: 64px; object-fit: contain; object-position: left center; padding: 0; margin-top: 18px; background: transparent; mix-blend-mode: multiply; }
-.institution-logo--light { filter: invert(1); }
-html[data-theme="dark"] .institution-logo { filter: brightness(2.2); mix-blend-mode: normal; }
-html[data-theme="dark"] .institution-logo--contrast { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
-html[data-theme="dark"] .institution-logo--light { filter: none; }
+.institution-logo { display: block; width: 128px; max-width: 100%; height: 64px; object-fit: contain; object-position: center; padding: 0; margin: 18px auto 0; background: transparent; filter: grayscale(1); mix-blend-mode: multiply; }
+.institution-logo--light { filter: grayscale(1) invert(1); }
+html[data-theme="dark"] .institution-logo { filter: grayscale(1) brightness(2.2); mix-blend-mode: normal; }
+html[data-theme="dark"] .institution-logo--contrast { filter: grayscale(1) invert(1); mix-blend-mode: screen; }
+html[data-theme="dark"] .institution-logo--light { filter: grayscale(1); }
 .page .cv-record-institution { color: var(--text); font-weight: 500; }
 .cv-thesis { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.9rem; }
 .cv-thesis a { display: inline-block; margin-top: 8px; }

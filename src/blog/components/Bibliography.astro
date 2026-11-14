@@ -2,6 +2,14 @@
 const { items } = Astro.props as {
   items: Array<{ id: string; author: string; title: string; year: string; url?: string }>;
 };
+
+const baseUrl = Astro.site ?? Astro.url;
+const externalLinkAttributes = (href: string) => {
+  const url = new URL(href, baseUrl);
+  return ['http:', 'https:'].includes(url.protocol) && url.origin !== baseUrl.origin
+    ? { target: '_blank', rel: 'noopener noreferrer' }
+    : {};
+};
 ---
 
 {items.length > 0 && (
@@ -14,7 +22,7 @@ const { items } = Astro.props as {
           {item.url && (
             <>
               {' '}
-              <a href={item.url} class="hover:text-[color:var(--text)]">{item.url}</a>
+              <a href={item.url} {...externalLinkAttributes(item.url)} class="hover:text-[color:var(--text)]">{item.url}</a>
             </>
           )}
         </li>

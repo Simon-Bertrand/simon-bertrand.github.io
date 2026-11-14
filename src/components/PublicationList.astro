@@ -19,16 +19,16 @@ import { publications } from "../data/params";
         </p>
         <h3>
           {titleUrl
-            ? <a href={titleUrl} target="_blank" rel="noreferrer">{publication.title}</a>
+            ? <a href={titleUrl} target="_blank" rel="noopener noreferrer">{publication.title}</a>
             : publication.title}
         </h3>
         <p class="cv-authors">{publication.authors.join(", ")}</p>
         {publication.description && <p>{publication.description}</p>}
         {hasLinks && <div class="cv-links">
-          {publication.pdf && <a href={publication.pdf} target="_blank" rel="noreferrer">PDF ↗</a>}
-          {externalUrl && <a href={externalUrl} target="_blank" rel="noreferrer">{publication.urlLabel ?? "DOI"} ↗</a>}
-          {publication.hal && <a href={publication.hal} target="_blank" rel="noreferrer">HAL ↗</a>}
-          {publication.code && <a href={publication.code} target="_blank" rel="noreferrer">Code ↗</a>}
+          {publication.pdf && <a href={publication.pdf} target="_blank" rel="noopener noreferrer">PDF ↗</a>}
+          {externalUrl && <a href={externalUrl} target="_blank" rel="noopener noreferrer">{publication.urlLabel ?? "DOI"} ↗</a>}
+          {publication.hal && <a href={publication.hal} target="_blank" rel="noopener noreferrer">HAL ↗</a>}
+          {publication.code && <a href={publication.code} target="_blank" rel="noopener noreferrer">Code ↗</a>}
         </div>}
       </article>
     </li>

@@ -5,7 +5,7 @@ import { profile, socialMedias } from '../data/params';
 <footer class="site-footer site-width">
   <p>© {new Date().getFullYear()} {profile.name}</p>
   <nav aria-label="Profils et flux RSS">
-    {socialMedias.map((item) => <a href={item.href} target="_blank" rel="noreferrer">{item.name}</a>)}
+    {socialMedias.map((item) => <a href={item.href} target="_blank" rel="noopener noreferrer">{item.name}</a>)}
     <a href="/blog/rss.xml">RSS</a>
   </nav>
 </footer>

@@ -15,7 +15,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <div class="project-state project-state-error" data-projects-error hidden>
     <p data-projects-error-message>Impossible de charger les projets GitHub.</p>
-    <a href="https://github.com/Simon-Bertrand" target="_blank" rel="noreferrer">
+    <a href="https://github.com/Simon-Bertrand" target="_blank" rel="noopener noreferrer">
       Voir les projets sur GitHub
     </a>
   </div>
@@ -30,7 +30,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <button type="button" data-sort-mode="stars">Plus étoilés</button>
         <button type="button" data-sort-mode="recent">Plus récents</button>
       </div>
-      <a href="https://github.com/Simon-Bertrand" target="_blank" rel="noreferrer">
+      <a href="https://github.com/Simon-Bertrand" target="_blank" rel="noopener noreferrer">
         Profil GitHub
       </a>
     </div>
@@ -135,7 +135,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       const card = createElement("a", "project-card");
       card.href = repo.html_url;
       card.target = "_blank";
-      card.rel = "noreferrer";
+      card.rel = "noopener noreferrer";
 
       const header = createElement("div", "project-card-header");
       header.append(createElement("h2", undefined, repo.name));
