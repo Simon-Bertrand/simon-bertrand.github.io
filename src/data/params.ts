@@ -202,65 +202,90 @@ export const educationItems = [
 export const experienceItems: {
   title: string;
   company: string;
+  contract?: "CDI" | "CDD" | "Stage";
+  location: string;
+  workMode?: string;
   description: string;
   date: string;
   src?: string;
   logoVariant?: "contrast";
+  link?: { label: string; url: string };
 }[] = [
   {
-    title: "Docteur-ingénieur | Data Scientist",
-    company: "DGA, Bordeaux",
+    title: "Data Scientist",
+    company: "DGA – Direction générale de l'armement",
+    contract: "CDI",
+    location: "Bordeaux et périphérie",
     description:
-      "Conception de systèmes d'intelligence artificielle pour la défense.",
+      "Développement de produits d'intelligence artificielle pour les besoins applicatifs militaires.",
     date: "Octobre 2026 - Aujourd'hui",
     src: "DGA.png",
   },
   {
-    title: "Doctorant-ingénieur | Recalage robuste d'images multimodales",
-    company: "CEA, Bordeaux",
+    title: "Réserviste opérationnel",
+    company: "Armée de l'air et de l'espace",
+    contract: "CDD",
+    location: "Bordeaux et périphérie",
     description:
-      "Recherche sur la navigation de drones assistée par le terrain : bases de données d'observation de la Terre et recalage SAR-optique par réseaux de neurones. Calcul sur GPU A100 et H100 avec SLURM.",
-    date: "Octobre 2023 - Aujourd'hui",
-    src: "CEA.png",
-  },
-  {
-    title: "Doctorant-ingénieur | Chargé d'enseignement vacataire",
-    company: "ENSEIRB-MATMECA, Bordeaux",
-    description:
-      "Plus de 100 heures d'enseignement en programmation C, Python et apprentissage profond. Accompagnement de hackathons en tant qu'expert en IA.",
-    date: "Octobre 2023 - Octobre 2026",
-    src: "U-Bordeaux.png",
-  },
-  {
-    title: "Militaire du rang | Réserviste opérationnel",
-    company: "Armée de l'Air et de l'Espace, Bordeaux",
-    description:
-      "Réserviste R01 de la Garde nationale, spécialisé en protection et défense.",
-    date: "Juin 2017 - Aujourd'hui",
+      "Réserviste caporal-chef de la Garde nationale, spécialisé en protection et défense.",
+    date: "Août 2017 - Aujourd'hui",
     src: "ArmeeAirEspace.svg",
     logoVariant: "contrast",
   },
   {
-    title: "Ingénieur stagiaire | Vision par ordinateur et IA",
-    company: "Thales Netherlands, Hengelo, Pays-Bas",
+    title: "Chargé d'enseignement vacataire",
+    company: "ENSEIRB-MATMECA",
+    location: "Bordeaux et périphérie",
+    workMode: "Sur site",
     description:
-      "Développement de fonctionnalités de vision par ordinateur et d'intelligence artificielle pour la caméra GateKeeper.",
-    date: "2023 (6 mois)",
+      "Chargé de TD et de TP de programmation C et de Deep Learning à l'Institut polytechnique de Bordeaux. Plus de 100 heures d'enseignement dispensées.",
+    date: "Février 2024 - Octobre 2026",
+    src: "U-Bordeaux.png",
+  },
+  {
+    title: "Doctorant-ingénieur en Deep Learning",
+    company: "CEA",
+    contract: "CDD",
+    location: "Bordeaux et périphérie",
+    workMode: "Sur site",
+    description:
+      "Recherches sur des algorithmes d'intelligence artificielle appliqués au traitement d'images, avec une spécialisation en recalage d'images multimodales et en architecture de réseaux de neurones. Auteur de trois publications scientifiques dans des revues et conférences internationales.",
+    date: "Octobre 2023 - Octobre 2026",
+    src: "CEA.png",
+  },
+  {
+    title: "Ingénieur de recherche en Deep Learning",
+    company: "Thales",
+    contract: "Stage",
+    location: "Hengelo, Overijssel, Pays-Bas",
+    workMode: "Sur site",
+    description:
+      "Conception d'architectures de réseaux de neurones profonds pour la segmentation sémantique de vidéos navales et militaires.",
+    date: "Mars 2023 - Août 2023",
     src: "Thales.png",
   },
   {
-    title: "Ingénieur stagiaire | Développement web",
-    company: "Groupama Grand Est, Strasbourg",
-    description: "Développement de deux applications web en C#, livrées en production.",
-    date: "2022 (3 mois)",
+    title: "Ingénieur logiciel",
+    company: "Groupama Grand Est",
+    contract: "Stage",
+    location: "Strasbourg, Grand Est, France",
+    description:
+      "Développement d'un système intranet de suivi des sinistres importants (plus de 100 000 €) en C# et T-SQL, dans l'écosystème Microsoft : SQL Server, SSIS, Entity Framework, Visual Studio et Azure DevOps.",
+    date: "Juin 2022 - Août 2022",
     src: "Groupama.png",
   },
   {
-    title: "Ingénieur stagiaire | Analyse de données",
-    company: "ICube, Strasbourg",
+    title: "Ingénieur de recherche en Data Mining",
+    company: "ICube Strasbourg",
+    contract: "Stage",
+    location: "Strasbourg, Grand Est, France",
     description:
-      "Développement d'une bibliothèque Python open source pour la fouille de données et l'analyse de groupes issus d'un apprentissage non supervisé.",
-    date: "2021 (2 mois)",
+      "Création de Clusters-Features, une bibliothèque Python pour l'analyse des résultats de clustering.",
+    date: "Juillet 2021 - Août 2021",
     src: "iCube.png",
+    link: {
+      label: "Clusters-Features sur GitHub",
+      url: "https://github.com/Simon-Bertrand/Clusters-Features",
+    },
   },
 ];

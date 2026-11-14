@@ -15,8 +15,14 @@ import InstitutionLogo from "../components/InstitutionLogo.astro";
         </div>
         <div>
           <h2>{item.title}</h2>
-          <p class="cv-record-institution">{item.company}</p>
+          <p class="cv-record-institution">{item.company}{item.contract && ` · ${item.contract}`}</p>
+          <p>{item.location}{item.workMode && ` · ${item.workMode}`}</p>
           <p>{item.description}</p>
+          {item.link && (
+            <p class="cv-links">
+              <a href={item.link.url} target="_blank" rel="noopener noreferrer">{item.link.label}</a>
+            </p>
+          )}
         </div>
       </li>
     ))}
